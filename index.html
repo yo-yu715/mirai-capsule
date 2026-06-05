@@ -5,76 +5,100 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unletter — サポート</title>
 <style>
-  :root {
-    --paper: #FBF8F1; --bg: #F6F5F3; --ink: #18181B; --inkSoft: #6B6B72;
-    --wax: #A24A38; --waxDeep: #843524; --line: #E6E3DC;
+  :root{
+    --paper:#FBF8F1; --bg:#FAF8F3; --ink:#1B1B1E; --inkSoft:#6E6B66; --inkFaint:#AAA59C;
+    --wax:#A24A38; --line:#ECE7DD;
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; color: var(--ink); background: var(--bg); line-height: 1.85;
-    font-family: -apple-system, "Hiragino Sans", system-ui, sans-serif;
+  *{box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
+  body{
+    margin:0; color:var(--ink); background:var(--bg);
+    font-family:-apple-system,"Hiragino Sans",system-ui,sans-serif;
+    font-size:15px; line-height:1.9; letter-spacing:.01em;
   }
-  .serif { font-family: "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif; }
-  .hero {
-    background: radial-gradient(120% 100% at 40% 30%, #FFFFFF 0%, var(--paper) 60%, #EFE7D6 100%);
-    padding: 76px 24px 60px; text-align: center; border-bottom: 1px solid var(--line);
+  .serif{ font-family:ui-serif,"Hiragino Mincho ProN","Yu Mincho",Georgia,serif; }
+
+  .hero{
+    text-align:center; padding:88px 24px 58px;
+    background:radial-gradient(135% 90% at 50% 0%, #FFFFFF 0%, var(--paper) 55%, #F1EADB 100%);
+    border-bottom:1px solid var(--line);
   }
-  .seal-img { width: 116px; height: 116px; display: block; margin: 0 auto 12px; }
-  .hero h1 { margin: 6px 0 4px; font-size: 32px; letter-spacing: .5px; }
-  .hero p { margin: 0; color: var(--inkSoft); }
-  .hero .by { margin-top: 10px; font-size: 12px; letter-spacing: 1px; color: #9A968D; }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 36px 22px 80px; }
-  .card {
-    background: #fff; border: 1px solid var(--line); border-radius: 18px;
-    padding: 26px 26px; margin-bottom: 20px;
-  }
-  h2 { font-size: 19px; margin: 0 0 10px; }
-  a { color: var(--wax); }
-  .btn {
-    display: inline-block; background: var(--ink); color: #fff; text-decoration: none;
-    padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: 15px;
-  }
-  .muted { color: var(--inkSoft); font-size: 14px; }
-  ul { padding-left: 1.2em; margin: 0; }
-  li { margin-bottom: 10px; }
-  footer { text-align: center; color: #A39F96; font-size: 13px; padding: 28px; }
+  .seal-img{ width:104px; height:104px; display:block; margin:0 auto 18px; }
+  .brand{ font-family:ui-serif,"Hiragino Mincho ProN",serif; font-weight:500;
+    font-size:35px; letter-spacing:.05em; margin:0; color:var(--ink); }
+  .tagline{ margin:9px 0 0; color:var(--inkSoft); font-size:14.5px; letter-spacing:.08em; }
+  .by{ margin-top:16px; font-size:11px; letter-spacing:.2em; color:var(--inkFaint); }
+
+  .wrap{ max-width:600px; margin:0 auto; padding:48px 26px 96px; }
+  section{ margin-bottom:46px; }
+  h2{ font-family:ui-serif,"Hiragino Mincho ProN",serif; font-weight:500;
+    font-size:18px; letter-spacing:.03em; margin:0 0 14px; }
+  p{ margin:0 0 12px; color:#36332F; }
+  .muted{ color:var(--inkSoft); font-size:13.5px; }
+  a{ color:var(--wax); text-decoration:none; border-bottom:1px solid rgba(162,74,56,.28); }
+  a:hover{ border-bottom-color:var(--wax); }
+
+  .btn{ display:inline-block; background:var(--ink); color:#fff; border:none; border-bottom:none;
+    border-radius:999px; padding:13px 28px; font-size:14.5px; letter-spacing:.05em; margin:6px 0; }
+
+  .faq{ list-style:none; padding:0; margin:0; }
+  .faq li{ padding:18px 0; border-top:1px solid var(--line); }
+  .faq li:first-child{ border-top:none; padding-top:4px; }
+  .faq .q{ font-weight:600; margin-bottom:5px; }
+  .faq .a{ color:var(--inkSoft); font-size:14px; }
+
+  footer{ text-align:center; color:var(--inkFaint); font-size:12px; letter-spacing:.1em; padding:34px; }
 </style>
 </head>
 <body>
   <div class="hero">
-    <img class="seal-img" src="seal.svg" alt="Unletter の封蝋" width="116" height="116">
-    <h1 class="serif">Unletter</h1>
-    <p>時をこえて、想いを届ける</p>
+    <img class="seal-img" src="seal.svg" alt="Unletter の封蝋" width="104" height="104">
+    <h1 class="brand">Unletter</h1>
+    <p class="tagline">時をこえて、想いを届ける</p>
     <div class="by">by Unbarria®</div>
   </div>
-  <div class="wrap">
-    <div class="card">
-      <h2 class="serif">このアプリについて</h2>
-      <p>Unletterは、いまの想いを「特別な封筒」へ閉じ込めて、未来へ届けるアプリです。手紙にメッセージ・写真・声を添え、一点ものの封蝋で封をします。開封日を決めたら、その日まで中身は誰にも見られません。1年後、5年後、10年後——開封日になると通知が届きます。未来の自分や大切な人へ、今日の気持ちを贈りましょう。</p>
-    </div>
 
-    <div class="card">
-      <h2 class="serif">お問い合わせ・サポート</h2>
-      <p>ご質問・ご要望・不具合のご報告は、以下のメールまでお気軽にご連絡ください。</p>
+  <div class="wrap">
+    <section>
+      <h2>このアプリについて</h2>
+      <p>Unletterは、いまの想いを「特別な封筒」へ閉じ込めて、未来へ届けるアプリです。手紙にメッセージ・写真・声を添え、一点ものの封蝋で封をします。開封日を決めたら、その日まで中身は誰にも見られません。1年後、5年後、10年後——開封日になると通知が届きます。</p>
+    </section>
+
+    <section>
+      <h2>お問い合わせ</h2>
+      <p>ご質問・ご要望・不具合のご報告は、お気軽にご連絡ください。</p>
       <p><a class="btn" href="mailto:unletter@unbarria.com">メールで問い合わせる</a></p>
       <p class="muted">unletter@unbarria.com</p>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2 class="serif">よくある質問</h2>
-      <ul>
-        <li><b>封をした手紙の開封日は変えられますか？</b><br>手紙は封をしたあと、開封日まで中身を見られない設計です。封をする前であれば自由に書き直せます。</li>
-        <li><b>データはどこに保存されますか？</b><br>すべてお使いの端末内に保存され、外部に送信されません。アプリを削除すると消去されます。</li>
-        <li><b>封蝋は手紙ごとに違うのですか？</b><br>はい。封をするたびに、色も形も二つとして同じにならない封蝋が生まれます。</li>
-        <li><b>Proでできることは？</b><br>音声メッセージの保存、手紙の無制限作成、写真の添付が解放されます。一度の購入でずっとお使いいただけます。</li>
+    <section>
+      <h2>よくある質問</h2>
+      <ul class="faq">
+        <li>
+          <div class="q">封をした手紙の開封日は変えられますか？</div>
+          <div class="a">手紙は封をしたあと、開封日まで中身を見られない設計です。封をする前であれば自由に書き直せます。</div>
+        </li>
+        <li>
+          <div class="q">データはどこに保存されますか？</div>
+          <div class="a">すべてお使いの端末内に保存され、外部に送信されません。アプリを削除すると消去されます。</div>
+        </li>
+        <li>
+          <div class="q">封蝋は手紙ごとに違うのですか？</div>
+          <div class="a">はい。封をするたびに、色も形も二つとして同じにならない封蝋が生まれます。</div>
+        </li>
+        <li>
+          <div class="q">Proでできることは？</div>
+          <div class="a">音声メッセージの保存、手紙の無制限作成、写真の添付が解放されます。一度の購入でずっとお使いいただけます。</div>
+        </li>
       </ul>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2 class="serif">プライバシー</h2>
+    <section>
+      <h2>プライバシー</h2>
       <p>本アプリはユーザーの個人情報を収集しません。詳しくは <a href="privacy.html">プライバシーポリシー</a> をご覧ください。</p>
-    </div>
+    </section>
   </div>
+
   <footer>© 2026 Unletter · by Unbarria®</footer>
 </body>
 </html>
