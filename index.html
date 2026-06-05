@@ -3,69 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>アンバリアLetter — サポート</title>
+<title>Unletter — サポート</title>
 <style>
-  :root { --accent: #6D28D9; --bg: #faf9ff; --ink: #1f2233; }
+  :root {
+    --paper: #FBF8F1; --bg: #F6F5F3; --ink: #18181B; --inkSoft: #6B6B72;
+    --wax: #A24A38; --waxDeep: #843524; --line: #E6E3DC;
+  }
   * { box-sizing: border-box; }
   body {
-    margin: 0; font-family: -apple-system, "Hiragino Sans", system-ui, sans-serif;
-    color: var(--ink); background: var(--bg); line-height: 1.8;
+    margin: 0; color: var(--ink); background: var(--bg); line-height: 1.85;
+    font-family: -apple-system, "Hiragino Sans", system-ui, sans-serif;
   }
+  .serif { font-family: "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif; }
   .hero {
-    background: linear-gradient(160deg, #4F46E5, #7C3AED);
-    color: #fff; padding: 72px 24px 64px; text-align: center;
+    background: radial-gradient(120% 100% at 40% 30%, #FFFFFF 0%, var(--paper) 60%, #EFE7D6 100%);
+    padding: 76px 24px 60px; text-align: center; border-bottom: 1px solid var(--line);
   }
-  .hero .badge { font-size: 56px; }
-  .hero h1 { margin: 12px 0 6px; font-size: 30px; }
-  .hero p { margin: 0; opacity: .9; }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+  .seal {
+    width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 50%;
+    background: radial-gradient(circle at 38% 32%, #C56450, var(--wax) 55%, var(--waxDeep));
+    color: #F4D9CC; font-weight: 700; font-size: 26px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 16px rgba(132,53,36,.28);
+  }
+  .hero h1 { margin: 6px 0 4px; font-size: 32px; letter-spacing: .5px; }
+  .hero p { margin: 0; color: var(--inkSoft); }
+  .hero .by { margin-top: 10px; font-size: 12px; letter-spacing: 1px; color: #9A968D; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 36px 22px 80px; }
   .card {
-    background: #fff; border-radius: 18px; padding: 28px;
-    box-shadow: 0 6px 24px rgba(80,60,160,.08); margin-bottom: 24px;
+    background: #fff; border: 1px solid var(--line); border-radius: 18px;
+    padding: 26px 26px; margin-bottom: 20px;
   }
-  h2 { color: var(--accent); font-size: 20px; margin-top: 0; }
-  a { color: var(--accent); }
+  h2 { font-size: 19px; margin: 0 0 10px; }
+  a { color: var(--wax); }
   .btn {
-    display: inline-block; background: var(--accent); color: #fff;
-    text-decoration: none; padding: 12px 22px; border-radius: 12px; font-weight: 700;
+    display: inline-block; background: var(--ink); color: #fff; text-decoration: none;
+    padding: 12px 24px; border-radius: 999px; font-weight: 600; font-size: 15px;
   }
-  ul { padding-left: 1.2em; }
-  footer { text-align: center; color: #888; font-size: 13px; padding: 24px; }
+  .muted { color: var(--inkSoft); font-size: 14px; }
+  ul { padding-left: 1.2em; margin: 0; }
+  li { margin-bottom: 10px; }
+  footer { text-align: center; color: #A39F96; font-size: 13px; padding: 28px; }
 </style>
 </head>
 <body>
   <div class="hero">
-    <div class="badge">💌</div>
-    <h1>アンバリアLetter</h1>
-    <p>いまの想いを、未来へ。</p>
+    <div class="seal serif">U</div>
+    <h1 class="serif">Unletter</h1>
+    <p>時をこえて、想いを届ける</p>
+    <div class="by">by Unbarria®</div>
   </div>
   <div class="wrap">
     <div class="card">
-      <h2>このアプリについて</h2>
-      <p>アンバリアLetterは、メッセージ・写真・声をカプセルに封じ込め、選んだ日まで誰にも開けられないタイムカプセルアプリです。1年後、5年後、10年後——開封日になると通知が届きます。未来の自分や大切な人へ、今日の気持ちを贈りましょう。</p>
+      <h2 class="serif">このアプリについて</h2>
+      <p>Unletterは、いまの想いを「特別な封筒」へ閉じ込めて、未来へ届けるアプリです。手紙にメッセージ・写真・声を添え、一点ものの封蝋で封をします。開封日を決めたら、その日まで中身は誰にも見られません。1年後、5年後、10年後——開封日になると通知が届きます。未来の自分や大切な人へ、今日の気持ちを贈りましょう。</p>
     </div>
 
     <div class="card">
-      <h2>お問い合わせ・サポート</h2>
+      <h2 class="serif">お問い合わせ・サポート</h2>
       <p>ご質問・ご要望・不具合のご報告は、以下のメールまでお気軽にご連絡ください。</p>
       <p><a class="btn" href="mailto:y.yusuke715@gmail.com">メールで問い合わせる</a></p>
-      <p style="color:#777;font-size:14px">y.yusuke715@gmail.com</p>
+      <p class="muted">y.yusuke715@gmail.com</p>
     </div>
 
     <div class="card">
-      <h2>よくある質問</h2>
+      <h2 class="serif">よくある質問</h2>
       <ul>
-        <li><b>開封日は変更できますか？</b><br>カプセルは封をしたあと、開封日まで中身を見られない設計です。</li>
+        <li><b>封をした手紙の開封日は変えられますか？</b><br>手紙は封をしたあと、開封日まで中身を見られない設計です。封をする前であれば自由に書き直せます。</li>
         <li><b>データはどこに保存されますか？</b><br>すべてお使いの端末内に保存され、外部に送信されません。アプリを削除すると消去されます。</li>
-        <li><b>Proでできることは？</b><br>音声メッセージの保存と、カプセルの無制限作成が可能になります。</li>
+        <li><b>封蝋は手紙ごとに違うのですか？</b><br>はい。封をするたびに、色も形も二つとして同じにならない封蝋が生まれます。</li>
+        <li><b>Proでできることは？</b><br>音声メッセージの保存、手紙の無制限作成、写真の添付が解放されます。一度の購入でずっとお使いいただけます。</li>
       </ul>
     </div>
 
     <div class="card">
-      <h2>プライバシー</h2>
+      <h2 class="serif">プライバシー</h2>
       <p>本アプリはユーザーの個人情報を収集しません。詳しくは <a href="privacy.html">プライバシーポリシー</a> をご覧ください。</p>
     </div>
   </div>
-  <footer>© 2026 アンバリアLetter</footer>
+  <footer>© 2026 Unletter · by Unbarria®</footer>
 </body>
 </html>
