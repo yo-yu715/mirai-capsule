@@ -1,45 +1,57 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Unletter の封蝋">
   <defs>
-    <radialGradient id="dome" cx="40%" cy="33%" r="78%">
-      <stop offset="0" stop-color="#C9694F"/>
+    <radialGradient id="dome" cx="40%" cy="32%" r="80%">
+      <stop offset="0" stop-color="#CB6B51"/>
       <stop offset="0.55" stop-color="#A24A38"/>
-      <stop offset="1" stop-color="#843524"/>
+      <stop offset="1" stop-color="#80331F"/>
     </radialGradient>
-    <linearGradient id="dish" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#7E3322"/>
-      <stop offset="0.5" stop-color="#9A4636"/>
-      <stop offset="1" stop-color="#B45C46"/>
-    </linearGradient>
-    <filter id="drop" x="-30%" y="-30%" width="160%" height="170%">
-      <feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#5A2316" flood-opacity="0.42"/>
+    <radialGradient id="dish" cx="50%" cy="60%" r="64%">
+      <stop offset="0" stop-color="#AC5340"/>
+      <stop offset="0.72" stop-color="#964435"/>
+      <stop offset="1" stop-color="#7C3120"/>
+    </radialGradient>
+    <!-- 上に集まる影 / 下に集まる光（中央でなめらかに消える） -->
+    <radialGradient id="topsh" cx="50%" cy="2%" r="72%">
+      <stop offset="0" stop-color="#581F12" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#581F12" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="botlt" cx="50%" cy="100%" r="62%">
+      <stop offset="0" stop-color="#EDA88F" stop-opacity="0.6"/>
+      <stop offset="0.62" stop-color="#EDA88F" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="drop" x="-30%" y="-30%" width="160%" height="175%">
+      <feDropShadow dx="0" dy="7" stdDeviation="8.5" flood-color="#561F12" flood-opacity="0.40"/>
     </filter>
-    <filter id="soft"><feGaussianBlur stdDeviation="1.4"/></filter>
+    <filter id="b1"><feGaussianBlur stdDeviation="0.9"/></filter>
+    <filter id="b2"><feGaussianBlur stdDeviation="2.4"/></filter>
+    <filter id="b3"><feGaussianBlur stdDeviation="6"/></filter>
   </defs>
 
-  <!-- 1. 押し広がった蝋（有機的な外形＋ドーム） -->
+  <!-- 1. 押し広がった蝋 -->
   <g filter="url(#drop)">
     <path d="M 175.43 100.00 L 175.45 104.95 L 174.81 109.85 L 173.51 114.62 L 171.61 119.19 L 169.25 123.51 L 166.60 127.59 L 163.82 131.47 L 161.03 135.24 L 158.30 138.96 L 155.61 142.67 L 152.89 146.39 L 150.03 150.03 L 146.91 153.49 L 143.47 156.65 L 139.68 159.39 L 135.60 161.65 L 131.29 163.44 L 126.85 164.82 L 122.37 165.89 L 117.90 166.80 L 113.45 167.63 L 109.01 168.45 L 104.54 169.23 L 100.00 169.92 L 95.38 170.41 L 90.71 170.60 L 86.00 170.40 L 81.30 169.79 L 76.66 168.77 L 72.09 167.38 L 67.60 165.70 L 63.19 163.75 L 58.88 161.54 L 54.70 159.03 L 50.73 156.18 L 47.08 152.92 L 43.89 149.21 L 41.27 145.07 L 39.29 140.57 L 37.95 135.82 L 37.19 130.98 L 36.84 126.16 L 36.72 121.48 L 36.64 116.98 L 36.47 112.64 L 36.13 108.41 L 35.64 104.22 L 35.09 100.00 L 34.64 95.72 L 34.43 91.37 L 34.58 86.99 L 35.17 82.63 L 36.18 78.33 L 37.56 74.14 L 39.25 70.04 L 41.17 66.03 L 43.26 62.09 L 45.54 58.21 L 48.04 54.43 L 50.80 50.80 L 53.87 47.39 L 57.27 44.31 L 60.99 41.61 L 64.97 39.32 L 69.13 37.40 L 73.40 35.78 L 77.72 34.38 L 82.08 33.11 L 86.46 31.94 L 90.90 30.89 L 95.42 30.06 L 100.00 29.59 L 104.61 29.60 L 109.19 30.22 L 113.63 31.48 L 117.86 33.34 L 121.83 35.69 L 125.54 38.35 L 129.03 41.13 L 132.40 43.88 L 135.75 46.50 L 139.16 48.96 L 142.69 51.32 L 146.31 53.69 L 149.98 56.16 L 153.60 58.87 L 157.06 61.87 L 160.29 65.19 L 163.23 68.82 L 165.87 72.71 L 168.24 76.84 L 170.34 81.15 L 172.17 85.65 L 173.68 90.30 L 174.80 95.10 Z" fill="url(#dome)"/>
-    <path d="M 175.43 100.00 L 175.45 104.95 L 174.81 109.85 L 173.51 114.62 L 171.61 119.19 L 169.25 123.51 L 166.60 127.59 L 163.82 131.47 L 161.03 135.24 L 158.30 138.96 L 155.61 142.67 L 152.89 146.39 L 150.03 150.03 L 146.91 153.49 L 143.47 156.65 L 139.68 159.39 L 135.60 161.65 L 131.29 163.44 L 126.85 164.82 L 122.37 165.89 L 117.90 166.80 L 113.45 167.63 L 109.01 168.45 L 104.54 169.23 L 100.00 169.92 L 95.38 170.41 L 90.71 170.60 L 86.00 170.40 L 81.30 169.79 L 76.66 168.77 L 72.09 167.38 L 67.60 165.70 L 63.19 163.75 L 58.88 161.54 L 54.70 159.03 L 50.73 156.18 L 47.08 152.92 L 43.89 149.21 L 41.27 145.07 L 39.29 140.57 L 37.95 135.82 L 37.19 130.98 L 36.84 126.16 L 36.72 121.48 L 36.64 116.98 L 36.47 112.64 L 36.13 108.41 L 35.64 104.22 L 35.09 100.00 L 34.64 95.72 L 34.43 91.37 L 34.58 86.99 L 35.17 82.63 L 36.18 78.33 L 37.56 74.14 L 39.25 70.04 L 41.17 66.03 L 43.26 62.09 L 45.54 58.21 L 48.04 54.43 L 50.80 50.80 L 53.87 47.39 L 57.27 44.31 L 60.99 41.61 L 64.97 39.32 L 69.13 37.40 L 73.40 35.78 L 77.72 34.38 L 82.08 33.11 L 86.46 31.94 L 90.90 30.89 L 95.42 30.06 L 100.00 29.59 L 104.61 29.60 L 109.19 30.22 L 113.63 31.48 L 117.86 33.34 L 121.83 35.69 L 125.54 38.35 L 129.03 41.13 L 132.40 43.88 L 135.75 46.50 L 139.16 48.96 L 142.69 51.32 L 146.31 53.69 L 149.98 56.16 L 153.60 58.87 L 157.06 61.87 L 160.29 65.19 L 163.23 68.82 L 165.87 72.71 L 168.24 76.84 L 170.34 81.15 L 172.17 85.65 L 173.68 90.30 L 174.80 95.10 Z" fill="none" stroke="#6E2A1C" stroke-opacity="0.35" stroke-width="1.4"/>
+    <path d="M 175.43 100.00 L 175.45 104.95 L 174.81 109.85 L 173.51 114.62 L 171.61 119.19 L 169.25 123.51 L 166.60 127.59 L 163.82 131.47 L 161.03 135.24 L 158.30 138.96 L 155.61 142.67 L 152.89 146.39 L 150.03 150.03 L 146.91 153.49 L 143.47 156.65 L 139.68 159.39 L 135.60 161.65 L 131.29 163.44 L 126.85 164.82 L 122.37 165.89 L 117.90 166.80 L 113.45 167.63 L 109.01 168.45 L 104.54 169.23 L 100.00 169.92 L 95.38 170.41 L 90.71 170.60 L 86.00 170.40 L 81.30 169.79 L 76.66 168.77 L 72.09 167.38 L 67.60 165.70 L 63.19 163.75 L 58.88 161.54 L 54.70 159.03 L 50.73 156.18 L 47.08 152.92 L 43.89 149.21 L 41.27 145.07 L 39.29 140.57 L 37.95 135.82 L 37.19 130.98 L 36.84 126.16 L 36.72 121.48 L 36.64 116.98 L 36.47 112.64 L 36.13 108.41 L 35.64 104.22 L 35.09 100.00 L 34.64 95.72 L 34.43 91.37 L 34.58 86.99 L 35.17 82.63 L 36.18 78.33 L 37.56 74.14 L 39.25 70.04 L 41.17 66.03 L 43.26 62.09 L 45.54 58.21 L 48.04 54.43 L 50.80 50.80 L 53.87 47.39 L 57.27 44.31 L 60.99 41.61 L 64.97 39.32 L 69.13 37.40 L 73.40 35.78 L 77.72 34.38 L 82.08 33.11 L 86.46 31.94 L 90.90 30.89 L 95.42 30.06 L 100.00 29.59 L 104.61 29.60 L 109.19 30.22 L 113.63 31.48 L 117.86 33.34 L 121.83 35.69 L 125.54 38.35 L 129.03 41.13 L 132.40 43.88 L 135.75 46.50 L 139.16 48.96 L 142.69 51.32 L 146.31 53.69 L 149.98 56.16 L 153.60 58.87 L 157.06 61.87 L 160.29 65.19 L 163.23 68.82 L 165.87 72.71 L 168.24 76.84 L 170.34 81.15 L 172.17 85.65 L 173.68 90.30 L 174.80 95.10 Z" fill="none" stroke="#6E2A1C" stroke-opacity="0.22" stroke-width="1.2"/>
   </g>
 
-  <!-- 2. 印章の縁の溝（円） -->
-  <circle cx="100.0" cy="100.0" r="49.0" fill="none" stroke="#7E3322" stroke-opacity="0.5" stroke-width="2.2" filter="url(#soft)"/>
+  <!-- 2. 印章の縁の溝 -->
+  <circle cx="100.0" cy="100.0" r="49.0" fill="none" stroke="#79301F" stroke-opacity="0.42" stroke-width="2.4" filter="url(#b2)"/>
 
-  <!-- 3. 凹んだ皿（上が影・下が光） -->
+  <!-- 3. 凹んだ皿＋上影・下光（帯にならない） -->
   <circle cx="100.0" cy="100.0" r="46.0" fill="url(#dish)"/>
-  <!-- 3b. 皿のふちの隆起（上側だけ光るリング） -->
-  <path d="M 57.0 100.0 A 44.0 44.0 0 0 1 143.0 100.0"
-        fill="none" stroke="#E59A82" stroke-opacity="0.55" stroke-width="2.4" filter="url(#soft)"/>
+  <circle cx="100.0" cy="100.0" r="46.0" fill="url(#topsh)"/>
+  <circle cx="100.0" cy="100.0" r="46.0" fill="url(#botlt)"/>
+  <!-- 下ふちの細い catch-light -->
+  <path d="M 71.5 136.8 A 44.0 44.0 0 0 0 128.5 136.8"
+        fill="none" stroke="#F0B49E" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round" filter="url(#b1)"/>
 
-  <!-- 4. U の凹凸レリーフ（影→光→面の3枚重ね・少し傾ける） -->
-  <g font-family="Georgia, 'Times New Roman', 'Hiragino Mincho ProN', serif" font-weight="600"
-     font-size="35.0" text-anchor="middle" transform="rotate(-3 100.0 100.0)">
-    <text x="101.4" y="101.0" dy="0.34em" fill="#6E2A1C" fill-opacity="0.55">U</text>
-    <text x="98.8" y="98.4" dy="0.34em" fill="#E2A48E" fill-opacity="0.85">U</text>
-    <text x="100.0" y="100.0" dy="0.34em" fill="#A8503C">U</text>
+  <!-- 4. U のレリーフ（大きめ・タイト） -->
+  <g font-family="Georgia, 'Times New Roman', 'Hiragino Mincho ProN', serif" font-weight="700"
+     font-size="43.4" text-anchor="middle" transform="rotate(-3 100.0 100.0)">
+    <text x="101.0" y="100.0" dy="0.34em" fill="#561F12" fill-opacity="0.5" filter="url(#b1)">U</text>
+    <text x="99.1" y="98.8" dy="0.34em" fill="#EEBAA4" fill-opacity="0.92" filter="url(#b1)">U</text>
+    <text x="100.0" y="100.0" dy="0.34em" fill="#A64E3A">U</text>
   </g>
 
-  <!-- 5. 全体のてかり -->
-  <ellipse cx="85.0" cy="76.0" rx="30" ry="15" fill="#fff" opacity="0.22"
-           filter="url(#soft)" style="mix-blend-mode:soft-light"/>
+  <!-- 5. てかり（弱く・広く） -->
+  <ellipse cx="87.0" cy="73.0" rx="34" ry="16" fill="#fff" opacity="0.15" filter="url(#b3)" style="mix-blend-mode:soft-light"/>
 </svg>
