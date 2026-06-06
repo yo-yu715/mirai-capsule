@@ -3,107 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unletter — Support</title>
-<style>
-  :root{
-    --paper:#FBF8F1; --bg:#FAF8F3; --ink:#1B1B1E; --inkSoft:#6E6B66; --inkFaint:#AAA59C;
-    --wax:#A24A38; --line:#ECE7DD;
-  }
-  *{box-sizing:border-box;}
-  html{-webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
-  body{
-    margin:0; color:var(--ink); background:var(--bg);
-    font-family:-apple-system,system-ui,"Helvetica Neue",sans-serif;
-    font-size:15px; line-height:1.85; letter-spacing:.01em;
-  }
-  .serif{ font-family:ui-serif,Georgia,"Times New Roman",serif; }
-
-  .langbar{ text-align:right; max-width:600px; margin:0 auto; padding:14px 26px 0; }
-  .langbar a{ color:var(--inkSoft); font-size:12.5px; letter-spacing:.06em; border-bottom:none; }
-  .langbar a:hover{ color:var(--wax); }
-
-  .hero{
-    text-align:center; padding:56px 24px 58px;
-    background:radial-gradient(135% 90% at 50% 0%, #FFFFFF 0%, var(--paper) 55%, #F1EADB 100%);
-    border-bottom:1px solid var(--line);
-  }
-  .seal-img{ width:104px; height:104px; display:block; margin:0 auto 18px; }
-  .brand{ font-family:ui-serif,Georgia,serif; font-weight:500;
-    font-size:35px; letter-spacing:.05em; margin:0; color:var(--ink); }
-  .tagline{ margin:9px 0 0; color:var(--inkSoft); font-size:14.5px; letter-spacing:.06em; }
-  .by{ margin-top:16px; font-size:11px; letter-spacing:.2em; color:var(--inkFaint); }
-
-  .wrap{ max-width:600px; margin:0 auto; padding:48px 26px 96px; }
-  section{ margin-bottom:46px; }
-  h2{ font-family:ui-serif,Georgia,serif; font-weight:500;
-    font-size:18px; letter-spacing:.03em; margin:0 0 14px; }
-  p{ margin:0 0 12px; color:#36332F; }
-  .muted{ color:var(--inkSoft); font-size:13.5px; }
-  a{ color:var(--wax); text-decoration:none; border-bottom:1px solid rgba(162,74,56,.28); }
-  a:hover{ border-bottom-color:var(--wax); }
-
-  .btn{ display:inline-block; background:var(--ink); color:#fff; border:none; border-bottom:none;
-    border-radius:999px; padding:13px 28px; font-size:14.5px; letter-spacing:.05em; margin:6px 0; }
-
-  .faq{ list-style:none; padding:0; margin:0; }
-  .faq li{ padding:18px 0; border-top:1px solid var(--line); }
-  .faq li:first-child{ border-top:none; padding-top:4px; }
-  .faq .q{ font-weight:600; margin-bottom:5px; }
-  .faq .a{ color:var(--inkSoft); font-size:14px; }
-
-  footer{ text-align:center; color:var(--inkFaint); font-size:12px; letter-spacing:.1em; padding:34px; }
-</style>
+<title>Unletter — Seal a letter to the future</title>
+<meta name="description" content="A time-capsule letter app. Write a letter, seal it with wax, and no one can open it until the day you choose. Every wax seal is one of a kind.">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="langbar"><a href="index.html">日本語</a></div>
-  <div class="hero">
-    <img class="seal-img" src="seal.svg" alt="Unletter wax seal" width="104" height="104">
-    <h1 class="brand">Unletter</h1>
-    <p class="tagline">Seal a letter to the future</p>
-    <div class="by">by Unbarria®</div>
-  </div>
 
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index-en.html">
+      <span class="name">Unletter</span>
+      <span class="by">by Unbarria®</span>
+    </a>
+    <div class="nav-right">
+      <span class="lang"><a href="index.html">日本語</a><span>/</span><a class="active">EN</a></span>
+      <a class="nav-cta" href="#download">Get the app</a>
+    </div>
+  </div>
+</header>
+
+<!-- hero -->
+<div class="hero">
+  <div class="hero-in">
+    <div>
+      <img class="seal-mini" src="seal.svg" alt="Unletter wax seal" width="64" height="64">
+      <h1>Seal a letter<br>to the future.</h1>
+      <p class="lede">Write a letter, add a photo or your voice, and seal it with wax. Pick a day, and no one can open it until then. A year, five years, ten years from now — a notification quietly arrives.</p>
+      <div id="download">
+        <a class="appstore" href="#" aria-label="App Store">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03.07-.463 1.58-1.518 3.12-.945 1.34-1.94 2.71-3.43 2.71-1.517 0-1.9-.88-3.63-.88-1.698 0-2.302.91-3.67.91-1.377 0-2.332-1.26-3.428-2.8-1.287-1.82-2.323-4.63-2.323-7.28 0-4.28 2.797-6.55 5.552-6.55 1.448 0 2.675.95 3.6.95.865 0 2.222-1.01 3.902-1.01.613 0 2.886.06 4.374 2.19-.13.09-2.383 1.37-2.383 4.19 0 3.26 2.854 4.42 2.955 4.45z"/></svg>
+          <span class="t"><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+        <p class="soon">Coming soon</p>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img class="p1" src="img/en/06_bunbako_album.jpg" alt="Wax seal collection">
+      <img class="p2" src="img/en/03_openable.jpg" alt="Its day has come">
+      <img class="p3" src="img/en/02_locked_memo.jpg" alt="A sealed letter">
+    </div>
+  </div>
+</div>
+
+<!-- features -->
+<div class="wrap">
+  <section>
+    <div class="feat">
+      <div class="ftext">
+        <p class="eyebrow">Write &amp; Seal</p>
+        <h2>Write a letter,<br>seal it with wax.</h2>
+        <p>Add photos or your voice to your message, then seal the envelope with wax. Once you pick an open day, no one can see inside until that day arrives. Every gesture, made with care.</p>
+      </div>
+      <div class="fimg"><img src="img/en/07_create.jpg" alt="Write a letter"></div>
+    </div>
+
+    <div class="feat rev">
+      <div class="ftext">
+        <p class="eyebrow">The Day Comes</p>
+        <h2>When the day comes,<br>a notification arrives.</h2>
+        <p>One year, five years, ten years later — a notification reaches you on the day you chose. Break the seal, open the envelope, and meet your letter again in the future.</p>
+        <p>A note, always visible before opening, holds the promise — when, where, and with whom to open it.</p>
+      </div>
+      <div class="fimg two"><img src="img/en/03_openable.jpg" alt="Its day has come"><img src="img/en/02_locked_memo.jpg" alt="A pinned note"></div>
+    </div>
+
+    <div class="feat">
+      <div class="ftext">
+        <p class="eyebrow">One of a Kind</p>
+        <h2>A wax seal that is<br>never the same twice.</h2>
+        <p>Every time you seal a letter, a wax seal is born that is never the same twice in color or shape. A special seal for your letter alone.</p>
+        <p>Your letters line up in the “Letterbox,” and you can gather your seals in the “Seal Collection.” A quiet little collection that grows with you.</p>
+      </div>
+      <div class="fimg two"><img src="img/en/06_bunbako_album.jpg" alt="Seal collection"><img src="img/en/seal_closeup.jpg" alt="Wax seal close-up"></div>
+    </div>
+  </section>
+</div>
+
+<!-- pricing -->
+<div class="band">
+  <section>
+    <div class="wrap">
+      <h2 class="sec">Free to start</h2>
+      <p class="sec-sub">Your letters stay safe in your iCloud, and carry over when you switch phones.</p>
+      <div class="price-grid">
+        <div class="card">
+          <h3>Free</h3>
+          <p class="p">Begin gently.</p>
+          <ul>
+            <li>Up to 3 letters</li>
+            <li>1 photo per letter</li>
+            <li>One-of-a-kind wax seals &amp; Letterbox</li>
+            <li>iCloud sync</li>
+          </ul>
+        </div>
+        <div class="card pro">
+          <h3>Pro</h3>
+          <p class="p">Carry more into the future.</p>
+          <ul>
+            <li>Unlimited letters</li>
+            <li>Save voice messages</li>
+            <li>Up to 4 photos per letter</li>
+            <li>One purchase, yours forever</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- faq -->
+<section>
   <div class="wrap">
-    <section>
-      <h2>About</h2>
-      <p>Unletter lets you seal today’s feelings into a “special envelope” and deliver them to the future. Add a message, photos, and your voice, then seal the letter with a one-of-a-kind wax seal. Once you pick an open day, no one can see inside until that day arrives. One year, five years, ten years later — a notification reaches you on the day you chose.</p>
-    </section>
-
-    <section>
-      <h2>Contact</h2>
-      <p>Questions, requests, or bug reports — we’d love to hear from you.</p>
-      <p><a class="btn" href="mailto:unletter@unbarria.com">Email us</a></p>
-      <p class="muted">unletter@unbarria.com</p>
-    </section>
-
-    <section>
-      <h2>FAQ</h2>
-      <ul class="faq">
-        <li>
-          <div class="q">Can I change the open day after sealing a letter?</div>
-          <div class="a">Once a letter is sealed, its contents stay hidden until the open day. You can freely edit a letter any time before you seal it.</div>
-        </li>
-        <li>
-          <div class="q">Where is my data stored? Does it survive switching phones?</div>
-          <div class="a">Your letters are stored on your device and in your private iCloud, and sync automatically across devices signed in with the same Apple ID. Even when you switch phones or reinstall, your letters to the future carry over. Your data is never sent or shared outside your account.</div>
-        </li>
-        <li>
-          <div class="q">Is the wax seal different for each letter?</div>
-          <div class="a">Yes. Every time you seal a letter, a wax seal is born that is never the same twice in color or shape.</div>
-        </li>
-        <li>
-          <div class="q">What’s the difference between Free and Pro?</div>
-          <div class="a">The free plan lets you create up to 3 letters, with 1 photo per letter. Pro unlocks unlimited letters, voice messages, and up to 4 photos per letter. One purchase, yours forever.</div>
-        </li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Privacy</h2>
-      <p>This app does not collect your personal information. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
-    </section>
+    <h2 class="sec">FAQ</h2>
+    <p class="sec-sub">&nbsp;</p>
+    <div class="faq">
+      <details><summary>Can I change the open day after sealing a letter?</summary><div class="a">Once a letter is sealed, its contents stay hidden until the open day. You can freely edit a letter any time before you seal it.</div></details>
+      <details><summary>Where is my data stored? Does it survive switching phones?</summary><div class="a">Your letters are stored on your device and in your private iCloud, and sync automatically across devices signed in with the same Apple ID. Even when you switch phones or reinstall, your letters to the future carry over. Your data is never sent or shared outside your account.</div></details>
+      <details><summary>Is the wax seal different for each letter?</summary><div class="a">Yes. Every time you seal a letter, a wax seal is born that is never the same twice in color or shape.</div></details>
+      <details><summary>What’s the difference between Free and Pro?</summary><div class="a">The free plan lets you create up to 3 letters, with 1 photo per letter. Pro unlocks unlimited letters, voice messages, and up to 4 photos per letter. One purchase, yours forever.</div></details>
+    </div>
+    <div class="center" style="margin-top:40px;">
+      <a class="btn" href="mailto:unletter@unbarria.com">Contact us</a>
+    </div>
   </div>
+</section>
 
-  <footer>© 2026 Unletter · by Unbarria®</footer>
+<footer>
+  <div class="foot-in">
+    <div class="brand"><span class="name serif" style="font-size:20px;">Unletter</span><span class="by">by Unbarria®</span></div>
+    <div class="foot-links">
+      <a href="index.html">日本語</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="mailto:unletter@unbarria.com">Contact</a>
+      <a href="https://unbarria.com">Unbarria®</a>
+    </div>
+    <div class="copy">© 2026 Unletter · by Unbarria®</div>
+  </div>
+</footer>
+
 </body>
 </html>
