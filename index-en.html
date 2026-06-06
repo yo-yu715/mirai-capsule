@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unletter — Support</title>
+<style>
+  :root{
+    --paper:#FBF8F1; --bg:#FAF8F3; --ink:#1B1B1E; --inkSoft:#6E6B66; --inkFaint:#AAA59C;
+    --wax:#A24A38; --line:#ECE7DD;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
+  body{
+    margin:0; color:var(--ink); background:var(--bg);
+    font-family:-apple-system,system-ui,"Helvetica Neue",sans-serif;
+    font-size:15px; line-height:1.85; letter-spacing:.01em;
+  }
+  .serif{ font-family:ui-serif,Georgia,"Times New Roman",serif; }
+
+  .langbar{ text-align:right; max-width:600px; margin:0 auto; padding:14px 26px 0; }
+  .langbar a{ color:var(--inkSoft); font-size:12.5px; letter-spacing:.06em; border-bottom:none; }
+  .langbar a:hover{ color:var(--wax); }
+
+  .hero{
+    text-align:center; padding:56px 24px 58px;
+    background:radial-gradient(135% 90% at 50% 0%, #FFFFFF 0%, var(--paper) 55%, #F1EADB 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .seal-img{ width:104px; height:104px; display:block; margin:0 auto 18px; }
+  .brand{ font-family:ui-serif,Georgia,serif; font-weight:500;
+    font-size:35px; letter-spacing:.05em; margin:0; color:var(--ink); }
+  .tagline{ margin:9px 0 0; color:var(--inkSoft); font-size:14.5px; letter-spacing:.06em; }
+  .by{ margin-top:16px; font-size:11px; letter-spacing:.2em; color:var(--inkFaint); }
+
+  .wrap{ max-width:600px; margin:0 auto; padding:48px 26px 96px; }
+  section{ margin-bottom:46px; }
+  h2{ font-family:ui-serif,Georgia,serif; font-weight:500;
+    font-size:18px; letter-spacing:.03em; margin:0 0 14px; }
+  p{ margin:0 0 12px; color:#36332F; }
+  .muted{ color:var(--inkSoft); font-size:13.5px; }
+  a{ color:var(--wax); text-decoration:none; border-bottom:1px solid rgba(162,74,56,.28); }
+  a:hover{ border-bottom-color:var(--wax); }
+
+  .btn{ display:inline-block; background:var(--ink); color:#fff; border:none; border-bottom:none;
+    border-radius:999px; padding:13px 28px; font-size:14.5px; letter-spacing:.05em; margin:6px 0; }
+
+  .faq{ list-style:none; padding:0; margin:0; }
+  .faq li{ padding:18px 0; border-top:1px solid var(--line); }
+  .faq li:first-child{ border-top:none; padding-top:4px; }
+  .faq .q{ font-weight:600; margin-bottom:5px; }
+  .faq .a{ color:var(--inkSoft); font-size:14px; }
+
+  footer{ text-align:center; color:var(--inkFaint); font-size:12px; letter-spacing:.1em; padding:34px; }
+</style>
+</head>
+<body>
+  <div class="langbar"><a href="index.html">日本語</a></div>
+  <div class="hero">
+    <img class="seal-img" src="seal.svg" alt="Unletter wax seal" width="104" height="104">
+    <h1 class="brand">Unletter</h1>
+    <p class="tagline">Seal a letter to the future</p>
+    <div class="by">by Unbarria®</div>
+  </div>
+
+  <div class="wrap">
+    <section>
+      <h2>About</h2>
+      <p>Unletter lets you seal today’s feelings into a “special envelope” and deliver them to the future. Add a message, photos, and your voice, then seal the letter with a one-of-a-kind wax seal. Once you pick an open day, no one can see inside until that day arrives. One year, five years, ten years later — a notification reaches you on the day you chose.</p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Questions, requests, or bug reports — we’d love to hear from you.</p>
+      <p><a class="btn" href="mailto:unletter@unbarria.com">Email us</a></p>
+      <p class="muted">unletter@unbarria.com</p>
+    </section>
+
+    <section>
+      <h2>FAQ</h2>
+      <ul class="faq">
+        <li>
+          <div class="q">Can I change the open day after sealing a letter?</div>
+          <div class="a">Once a letter is sealed, its contents stay hidden until the open day. You can freely edit a letter any time before you seal it.</div>
+        </li>
+        <li>
+          <div class="q">Where is my data stored? Does it survive switching phones?</div>
+          <div class="a">Your letters are stored on your device and in your private iCloud, and sync automatically across devices signed in with the same Apple ID. Even when you switch phones or reinstall, your letters to the future carry over. Your data is never sent or shared outside your account.</div>
+        </li>
+        <li>
+          <div class="q">Is the wax seal different for each letter?</div>
+          <div class="a">Yes. Every time you seal a letter, a wax seal is born that is never the same twice in color or shape.</div>
+        </li>
+        <li>
+          <div class="q">What’s the difference between Free and Pro?</div>
+          <div class="a">The free plan lets you create up to 3 letters, with 1 photo per letter. Pro unlocks unlimited letters, voice messages, and up to 4 photos per letter. One purchase, yours forever.</div>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Privacy</h2>
+      <p>This app does not collect your personal information. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+    </section>
+  </div>
+
+  <footer>© 2026 Unletter · by Unbarria®</footer>
+</body>
+</html>
