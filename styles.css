@@ -61,7 +61,7 @@ section{padding:84px 0;}
 .feat.rev .ftext{order:2;}
 .feat h2{font-family:var(--serif); font-weight:500; font-size:33px; line-height:1.32; margin:0 0 16px; letter-spacing:.02em;}
 .feat p{font-size:16px; color:#45423d; margin:0 0 12px;}
-.fimg{display:flex; justify-content:center; gap:18px; flex-wrap:wrap;}
+.fimg{display:flex; justify-content:center; align-items:flex-start; gap:18px; flex-wrap:wrap;}
 .fimg img{width:min(248px,74vw); border-radius:28px; box-shadow:0 22px 48px rgba(40,34,28,.16), 0 6px 14px rgba(40,34,28,.08);}
 .fimg.two img{width:min(204px,42vw);}
 .fimg.two img:last-child{margin-top:42px;}
