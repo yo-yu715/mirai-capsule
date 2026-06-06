@@ -104,6 +104,8 @@ footer{background:var(--paper); border-top:1px solid var(--line); padding:46px 2
 @media (max-width:860px){
   .hero-in{grid-template-columns:1fr; gap:8px; padding:54px 24px 40px; text-align:center;}
   .hero h1{font-size:40px;}
+  /* 日本語は行末の句読点（、。）の右余白で中央寄せが左にズレて見えるので右へ補正 */
+  html[lang="ja"] .hero h1{padding-left:.5em;}
   .hero .lede{margin-left:auto; margin-right:auto;}
   .hero .seal-mini{margin-left:auto; margin-right:auto;}
   .hero-art{min-height:0; margin-top:30px;}
