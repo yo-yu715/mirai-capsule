@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<!-- 個人宛の私的なリンク。検索に出さない。 -->
+<meta name="robots" content="noindex, nofollow">
+<title>手紙が届いています — Unletter</title>
+<style>
+  /* アプリの世界観に合わせる：地は近白（ニュートラル）、手紙の object は温かい紙＋封蝋。
+     アプリは明色固定なので、このページも明色のみ。 */
+  :root{
+    --paper:#FAFAFA; --ink:#18181B; --ink-soft:#71717A; --ink-faint:#A1A1AA;
+    font-family:-apple-system,"Hiragino Mincho ProN","Hiragino Kaku Gothic ProN",serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ height:100%; }
+  body{
+    /* アプリの WarmBackground（近白の縦グラデ）に合わせ、封筒画像の縁を溶け込ませる。 */
+    background:linear-gradient(180deg, #FEFEFE 0%, #F7F7F6 100%) fixed; color:var(--ink);
+    -webkit-font-smoothing:antialiased; line-height:1.7;
+    display:flex; align-items:center; justify-content:center;
+    padding:36px 26px calc(36px + env(safe-area-inset-bottom));
+  }
+  main{ width:100%; max-width:360px; text-align:center; }
+  .wordmark{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:18px;
+    letter-spacing:.06em; color:var(--ink-soft); margin-bottom:30px; }
+  .from{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
+    font-size:13px; color:var(--ink-soft); margin-bottom:6px; min-height:1.1em; }
+  .title{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-weight:500;
+    font-size:25px; letter-spacing:.03em; }
+  /* 封筒は長方形なので drop-shadow だと影も四角くなる。下に楕円のソフト影を敷いて浮遊感を出す。 */
+  .env-wrap{ position:relative; width:238px; margin:30px auto 34px; }
+  /* 長方形の実体をガウスぼかし＝境界の線が完全に溶ける（drop-shadowは縁が立つので使わない）。 */
+  .env-wrap{ position:relative; width:238px; margin:30px auto 42px; }
+  .env-wrap::before{ content:""; position:absolute; inset:0; z-index:0;
+    background:rgba(24,24,27,0.22); border-radius:12px;
+    transform:translateY(18px) scale(0.94); filter:blur(30px); }
+  .env{ position:relative; z-index:1; display:block; width:238px; height:auto; }
+  .open{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
+    font-size:13px; color:var(--ink-soft); line-height:1.8; min-height:1.1em;
+    padding:0 8px; white-space:pre-line; }
+  /* Apple 公式 App Store バッジ（アートワークは改変しない／余白規定を満たす）。 */
+  .badge-link{ display:inline-block; margin-top:34px; line-height:0; }
+  .badge-link:active{ opacity:.85; }
+  .badge{ height:50px; width:auto; }
+  .note{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
+    font-size:12.5px; color:var(--ink-faint); margin-top:18px; }
+  .footer{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:12px;
+    color:var(--ink-faint); margin-top:46px; }
+</style>
+</head>
+<body>
+  <main>
+    <div class="wordmark">Unletter</div>
+
+    <p class="from" id="from"></p>
+    <p class="title" id="title">手紙が届いています</p>
+
+    <!-- アプリが実際に描く封筒（封蝋付き）をそのまま画像化したもの。WEBとアプリで同一の見た目。 -->
+    <div class="env-wrap">
+      <img class="env" src="envelope.png?v=4" width="988" height="692" alt="封蝋で閉じられた封筒">
+    </div>
+
+
+    <p class="open" id="open"></p>
+
+    <a class="badge-link" id="badgeLink" href="https://apps.apple.com/app/id6777921284" aria-label="App Store で入手">
+      <img class="badge" id="badge" src="appstore-badge-ja.svg" alt="App Store で入手">
+    </a>
+
+    <p class="note" id="note">Unletter アプリを入れたあと、もう一度このリンクを開くと、手紙が追加されます。</p>
+    <p class="footer">Unletter by Unbarria®</p>
+  </main>
+
+  <script>
+    // 端末の言語で日英を出し分け。「#」以降のフラグメントはサーバーに送られない
+    // （表示のためだけにブラウザ内で読む。手紙の本文・写真などは一切含めない）。
+    (function () {
+      var lang = (navigator.language || "ja").toLowerCase().indexOf("ja") === 0 ? "ja" : "en";
+      document.documentElement.lang = lang;
+      var MON = ["January","February","March","April","May","June","July","August",
+                 "September","October","November","December"];
+      var T = {
+        ja: {
+          title: "手紙が届いています",
+          from: function (n) { return n + " さんから"; },
+          date: function (y, m, d) { return y + "年" + m + "月" + d + "日"; },
+          sealed: function (ds) { return "ひらく日（" + ds + "）まで、\nそっと封のままお預かりします。"; },
+          badge: "appstore-badge-ja.svg",
+          badgeAlt: "App Store で入手",
+          note: "Unletter アプリを入れたあと、もう一度このリンクを開くと、手紙が追加されます。"
+        },
+        en: {
+          title: "A letter is waiting for you",
+          from: function (n) { return "From " + n; },
+          date: function (y, m, d) { return MON[m - 1] + " " + d + ", " + y; },
+          sealed: function (ds) { return "Sealed until " + ds + "."; },
+          badge: "appstore-badge-en.svg",
+          badgeAlt: "Download on the App Store",
+          note: "Install Unletter, then open this link again to receive your letter."
+        }
+      };
+      var t = T[lang];
+      document.getElementById("title").textContent = t.title;
+      document.getElementById("note").textContent = t.note;
+      var badge = document.getElementById("badge");
+      badge.src = t.badge; badge.alt = t.badgeAlt;
+      document.getElementById("badgeLink").setAttribute("aria-label", t.badgeAlt);
+      try {
+        var p = new URLSearchParams(location.hash.replace(/^#/, ""));
+        var from = p.get("from");
+        if (from) document.getElementById("from").textContent = t.from(decodeURIComponent(from));
+        var open = p.get("open");
+        var m = open && open.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+        if (m) document.getElementById("open").textContent = t.sealed(t.date(+m[1], +m[2], +m[3]));
+      } catch (e) { /* フラグメントが無くても通常表示 */ }
+    })();
+  </script>
+</body>
+</html>
