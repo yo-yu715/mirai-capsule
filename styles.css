@@ -7,7 +7,9 @@
 }
 *{box-sizing:border-box;}
 html{-webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; scroll-behavior:smooth;}
-html, body{overflow-x:hidden;}
+/* 横スクロールは html だけで抑止する。body にも付けると sticky ヘッダーが
+   body をスクロール基準にしてしまい固定が壊れる（ヘッダーが流れて消える）。 */
+html{overflow-x:hidden;}
 body{
   margin:0; color:var(--ink); background:var(--bg);
   font-family:var(--sans); font-size:16px; line-height:1.85; letter-spacing:.01em;
@@ -114,10 +116,18 @@ footer{background:var(--paper); border-top:1px solid var(--line); padding:46px 2
   .feat .ftext{text-align:center;}
   .feat .fimg{order:2;}
   .price-grid{grid-template-columns:1fr;}
-  .nav-cta{display:none;}
+  /* 入手導線はモバイルでもヘッダーに常時残す（狭幅でも収まるよう余白を詰める） */
+  .nav-right{gap:12px;}
+  .nav-cta{padding:8px 14px;}
   section{padding:60px 0;}
 }
 @media (max-width:480px){
   .hero h1{font-size:34px;}
   .hero-art img{width:min(232px,48%);}
+  /* さらに狭い画面では副題を省いて入手ボタンの居場所を確保 */
+  .brand .by{display:none;}
+  .nav-in{padding:12px 18px;}
+  .nav-right{gap:10px;}
+  .lang a{font-size:12px;}
+  .nav-cta{font-size:13px; padding:7px 13px;}
 }
