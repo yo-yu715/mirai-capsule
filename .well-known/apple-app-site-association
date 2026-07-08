@@ -5,6 +5,10 @@
         "appIDs": ["U225VQ66FU.com.unbarria.unletter"],
         "components": [
           {
+            "/": "/l/",
+            "comment": "Unletter で受け取る手紙の共有リンク"
+          },
+          {
             "/": "/l/*",
             "comment": "Unletter で受け取る手紙の共有リンク"
           }
