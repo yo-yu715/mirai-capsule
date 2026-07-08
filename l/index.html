@@ -43,13 +43,11 @@
     font-size:13px; color:var(--ink-soft); margin-bottom:6px; min-height:1.1em; }
   .title{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-weight:500;
     font-size:25px; letter-spacing:.03em; }
-  /* 封筒は長方形なので drop-shadow だと影も四角くなる。下に楕円のソフト影を敷いて浮遊感を出す。 */
-  .env-wrap{ position:relative; width:238px; margin:30px auto 34px; }
-  /* 長方形の実体をガウスぼかし＝境界の線が完全に溶ける（drop-shadowは縁が立つので使わない）。 */
   .env-wrap{ position:relative; width:238px; margin:30px auto 42px; }
   .env-wrap::before{ content:""; position:absolute; inset:0; z-index:0;
-    background:rgba(24,24,27,0.22); border-radius:12px;
-    transform:translateY(18px) scale(0.94); filter:blur(30px); }
+    background:rgba(24,24,27,0.30); border-radius:12px;
+    transform:translateY(19px) scale(0.96);
+    -webkit-filter:blur(28px); filter:blur(28px); }
   .env{ position:relative; z-index:1; display:block; width:238px; height:auto; }
   .open{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
     font-size:13px; color:var(--ink-soft); line-height:1.8; min-height:1.1em;
