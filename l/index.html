@@ -6,6 +6,19 @@
 <meta name="color-scheme" content="light">
 <!-- 個人宛の私的なリンク。検索に出さない。 -->
 <meta name="robots" content="noindex, nofollow">
+<meta name="description" content="あなた宛の手紙が届いています。Unletterで、封を開く日までそっとお預かりします。">
+<meta name="theme-color" content="#FAFAFA">
+<meta name="apple-itunes-app" content="app-id=6777921284">
+<meta property="og:site_name" content="Unletter">
+<meta property="og:type" content="website">
+<meta property="og:title" content="手紙が届いています — Unletter">
+<meta property="og:description" content="あなた宛の手紙が届いています。Unletterで、封を開く日までそっとお預かりします。">
+<meta property="og:url" content="https://unletter.unbarria.com/l/r/">
+<meta property="og:image" content="https://unletter.unbarria.com/l/link-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="封蝋で閉じられた封筒">
+<meta name="twitter:card" content="summary_large_image">
 <title>手紙が届いています — Unletter</title>
 <style>
   /* アプリの世界観に合わせる：地は近白（ニュートラル）、手紙の object は温かい紙＋封蝋。
@@ -45,15 +58,18 @@
   .badge-link{ display:inline-block; margin-top:34px; line-height:0; }
   .badge-link:active{ opacity:.85; }
   .badge{ height:50px; width:auto; }
-  .open-app{ display:flex; align-items:center; justify-content:center;
-    width:max-content; max-width:100%; min-width:190px; height:46px;
-    margin:30px auto 0; padding:0 24px;
-    border-radius:999px; background:#18181B; color:#FAFAFA; text-decoration:none;
-    font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
-    font-size:14px; font-weight:600; box-shadow:0 10px 24px rgba(24,24,27,.14); }
-  .open-app:active{ opacity:.86; transform:translateY(1px); }
+  .open-app{ display:flex; align-items:center; gap:8px;
+    width:max-content; max-width:100%; margin:30px auto 0;
+    padding:0 2px 4px; border-bottom:1px solid rgba(24,24,27,.34);
+    color:var(--ink); text-decoration:none;
+    font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:15px;
+    letter-spacing:.04em; line-height:1.4; }
+  .open-app::after{ content:""; width:6px; height:6px;
+    border-top:1px solid rgba(24,24,27,.58); border-right:1px solid rgba(24,24,27,.58);
+    transform:rotate(45deg); margin-top:1px; }
+  .open-app:active{ opacity:.62; }
   .open-app[hidden]{ display:none; }
-  .open-app + .badge-link{ margin-top:16px; }
+  .open-app + .badge-link{ margin-top:18px; }
   .note{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
     font-size:12.5px; color:var(--ink-faint); margin-top:18px; }
   .footer{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:12px;
@@ -74,7 +90,9 @@
 
     <p class="open" id="open"></p>
 
-    <a class="open-app" id="openApp" href="#" hidden>Unletterで開く</a>
+    <a class="open-app" id="openApp" href="#" hidden>
+      <span id="openAppLabel">手紙を受け取る</span>
+    </a>
 
     <a class="badge-link" id="badgeLink" href="https://apps.apple.com/app/id6777921284" aria-label="App Store で入手">
       <img class="badge" id="badge" src="appstore-badge-ja.svg" alt="App Store で入手">
@@ -100,8 +118,8 @@
           sealed: function (ds) { return "ひらく日（" + ds + "）まで、\nそっと封のままお預かりします。"; },
           badge: "appstore-badge-ja.svg",
           badgeAlt: "App Store で入手",
-          openApp: "Unletterで開く",
-          note: "アプリを入れている場合は「Unletterで開く」をタップしてください。"
+          openApp: "手紙を受け取る",
+          note: "Unletterが開かない場合は、App Storeからどうぞ。"
         },
         en: {
           title: "A letter is waiting for you",
@@ -110,8 +128,8 @@
           sealed: function (ds) { return "Sealed until " + ds + "."; },
           badge: "appstore-badge-en.svg",
           badgeAlt: "Download on the App Store",
-          openApp: "Open in Unletter",
-          note: "If Unletter is installed, tap “Open in Unletter”."
+          openApp: "Receive the letter",
+          note: "If Unletter does not open, download it from the App Store."
         }
       };
       var t = T[lang];
@@ -120,7 +138,7 @@
       var rawHash = location.hash.replace(/^#/, "");
       var openApp = document.getElementById("openApp");
       if (rawHash) {
-        openApp.textContent = t.openApp;
+        document.getElementById("openAppLabel").textContent = t.openApp;
         openApp.href = "unletter://receive?" + rawHash;
         openApp.hidden = false;
       }
@@ -129,9 +147,9 @@
       document.getElementById("badgeLink").setAttribute("aria-label", t.badgeAlt);
       try {
         var p = new URLSearchParams(location.hash.replace(/^#/, ""));
-        var from = p.get("from");
+        var from = p.get("f") || p.get("from");
         if (from) document.getElementById("from").textContent = t.from(decodeURIComponent(from));
-        var open = p.get("open");
+        var open = p.get("o") || p.get("open");
         var m = open && open.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
         if (m) document.getElementById("open").textContent = t.sealed(t.date(+m[1], +m[2], +m[3]));
       } catch (e) { /* フラグメントが無くても通常表示 */ }
