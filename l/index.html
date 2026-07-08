@@ -60,18 +60,18 @@
   .badge{ height:50px; width:auto; }
   .open-app{ display:flex; align-items:center; gap:8px;
     width:max-content; max-width:100%; margin:30px auto 0;
-    padding:0 2px 4px; border-bottom:1px solid rgba(24,24,27,.34);
+    padding:0 4px 5px; border-bottom:1px solid rgba(24,24,27,.46);
     color:var(--ink); text-decoration:none;
-    font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:15px;
-    letter-spacing:.04em; line-height:1.4; }
-  .open-app::after{ content:""; width:6px; height:6px;
+    font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:16.5px;
+    font-weight:500; letter-spacing:.04em; line-height:1.4; }
+  .open-app::after{ content:""; width:7px; height:7px;
     border-top:1px solid rgba(24,24,27,.58); border-right:1px solid rgba(24,24,27,.58);
     transform:rotate(45deg); margin-top:1px; }
   .open-app:active{ opacity:.62; }
   .open-app[hidden]{ display:none; }
-  .open-app + .badge-link{ margin-top:18px; }
   .note{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
-    font-size:12.5px; color:var(--ink-faint); margin-top:18px; }
+    font-size:12.5px; color:var(--ink-faint); margin-top:26px; }
+  .note + .badge-link{ margin-top:10px; }
   .footer{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:12px;
     color:var(--ink-faint); margin-top:46px; }
 </style>
@@ -94,11 +94,12 @@
       <span id="openAppLabel">手紙を受け取る</span>
     </a>
 
+    <p class="note" id="note">Unletter アプリを入れたあと、もう一度このリンクを開くと、手紙が追加されます。</p>
+
     <a class="badge-link" id="badgeLink" href="https://apps.apple.com/app/id6777921284" aria-label="App Store で入手">
       <img class="badge" id="badge" src="appstore-badge-ja.svg" alt="App Store で入手">
     </a>
 
-    <p class="note" id="note">Unletter アプリを入れたあと、もう一度このリンクを開くと、手紙が追加されます。</p>
     <p class="footer">Unletter by Unbarria®</p>
   </main>
 
@@ -119,7 +120,7 @@
           badge: "appstore-badge-ja.svg",
           badgeAlt: "App Store で入手",
           openApp: "手紙を受け取る",
-          note: "Unletterをお持ちでない方は、App Storeから。"
+          note: "Unletterをお持ちでない方は"
         },
         en: {
           title: "A letter is waiting for you",
@@ -129,7 +130,7 @@
           badge: "appstore-badge-en.svg",
           badgeAlt: "Download on the App Store",
           openApp: "Receive the letter",
-          note: "If you do not have Unletter, download it from the App Store."
+          note: "If you do not have Unletter"
         }
       };
       var t = T[lang];
@@ -139,7 +140,17 @@
       var openApp = document.getElementById("openApp");
       if (rawHash) {
         document.getElementById("openAppLabel").textContent = t.openApp;
-        openApp.href = "unletter://receive?" + rawHash;
+        try {
+          var appParams = new URLSearchParams();
+          var landingParams = new URLSearchParams(rawHash);
+          ["m", "f", "from", "o", "open"].forEach(function (name) {
+            var value = landingParams.get(name);
+            if (value) appParams.set(name, value);
+          });
+          openApp.href = "unletter://receive?" + appParams.toString();
+        } catch (e) {
+          openApp.href = "unletter://receive?" + rawHash;
+        }
         openApp.hidden = false;
       }
       var badge = document.getElementById("badge");
