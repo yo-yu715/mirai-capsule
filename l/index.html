@@ -45,6 +45,14 @@
   .badge-link{ display:inline-block; margin-top:34px; line-height:0; }
   .badge-link:active{ opacity:.85; }
   .badge{ height:50px; width:auto; }
+  .open-app{ display:inline-flex; align-items:center; justify-content:center;
+    min-width:190px; height:46px; margin-top:30px; padding:0 24px;
+    border-radius:999px; background:#18181B; color:#FAFAFA; text-decoration:none;
+    font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
+    font-size:14px; font-weight:600; box-shadow:0 10px 24px rgba(24,24,27,.14); }
+  .open-app:active{ opacity:.86; transform:translateY(1px); }
+  .open-app[hidden]{ display:none; }
+  .open-app + .badge-link{ margin-top:16px; }
   .note{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
     font-size:12.5px; color:var(--ink-faint); margin-top:18px; }
   .footer{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:12px;
@@ -63,8 +71,9 @@
       <img class="env" src="envelope.png?v=4" width="988" height="692" alt="封蝋で閉じられた封筒">
     </div>
 
-
     <p class="open" id="open"></p>
+
+    <a class="open-app" id="openApp" href="#" hidden>Unletterで開く</a>
 
     <a class="badge-link" id="badgeLink" href="https://apps.apple.com/app/id6777921284" aria-label="App Store で入手">
       <img class="badge" id="badge" src="appstore-badge-ja.svg" alt="App Store で入手">
@@ -90,7 +99,8 @@
           sealed: function (ds) { return "ひらく日（" + ds + "）まで、\nそっと封のままお預かりします。"; },
           badge: "appstore-badge-ja.svg",
           badgeAlt: "App Store で入手",
-          note: "Unletter アプリを入れたあと、もう一度このリンクを開くと、手紙が追加されます。"
+          openApp: "Unletterで開く",
+          note: "アプリを入れている場合は「Unletterで開く」をタップしてください。"
         },
         en: {
           title: "A letter is waiting for you",
@@ -99,12 +109,20 @@
           sealed: function (ds) { return "Sealed until " + ds + "."; },
           badge: "appstore-badge-en.svg",
           badgeAlt: "Download on the App Store",
-          note: "Install Unletter, then open this link again to receive your letter."
+          openApp: "Open in Unletter",
+          note: "If Unletter is installed, tap “Open in Unletter”."
         }
       };
       var t = T[lang];
       document.getElementById("title").textContent = t.title;
       document.getElementById("note").textContent = t.note;
+      var rawHash = location.hash.replace(/^#/, "");
+      var openApp = document.getElementById("openApp");
+      if (rawHash) {
+        openApp.textContent = t.openApp;
+        openApp.href = "unletter://receive?" + rawHash;
+        openApp.hidden = false;
+      }
       var badge = document.getElementById("badge");
       badge.src = t.badge; badge.alt = t.badgeAlt;
       document.getElementById("badgeLink").setAttribute("aria-label", t.badgeAlt);
