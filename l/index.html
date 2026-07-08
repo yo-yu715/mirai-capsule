@@ -28,15 +28,16 @@
     font-family:-apple-system,"Hiragino Mincho ProN","Hiragino Kaku Gothic ProN",serif;
   }
   *{ box-sizing:border-box; margin:0; padding:0; }
-  html,body{ height:100%; }
+  html{ min-height:100%; }
   body{
     /* アプリの WarmBackground（近白の縦グラデ）に合わせ、封筒画像の縁を溶け込ませる。 */
     background:linear-gradient(180deg, #FEFEFE 0%, #F7F7F6 100%) fixed; color:var(--ink);
     -webkit-font-smoothing:antialiased; line-height:1.7;
-    display:flex; align-items:center; justify-content:center;
-    padding:36px 26px calc(36px + env(safe-area-inset-bottom));
+    min-height:100vh; min-height:100svh;
+    display:flex; align-items:flex-start; justify-content:center;
+    padding:calc(32px + env(safe-area-inset-top)) 26px calc(36px + env(safe-area-inset-bottom));
   }
-  main{ width:100%; max-width:360px; text-align:center; }
+  main{ width:100%; max-width:360px; margin-block:auto; text-align:center; }
   .wordmark{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:18px;
     letter-spacing:.06em; color:var(--ink-soft); margin-bottom:30px; }
   .from{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
