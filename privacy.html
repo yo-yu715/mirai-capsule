@@ -63,7 +63,7 @@
       <li>iCloudと紐づいた既存手紙または所有者情報付きの控えがある状態で、iCloudからサインアウトした場合、別のApple Accountに切り替えた場合、または本アプリのiCloud設定をオフにした場合、本アプリは手紙を空の文箱として表示せず、データを変更しない状態で確認を促します。</li>
       <li>同じApple Accountであることと控えの整合性を確認でき、同期ストアに不足がある場合に限り、本アプリは復旧候補を表示します。復旧はユーザーが明示的に選んだ場合だけ行います。</li>
       <li>別端末がV1.0のままの場合、その端末で削除した手紙にはV1.1の削除記録がありません。このため復旧候補に削除済みの手紙が含まれる可能性を画面内で案内し、復旧前にもう一度確認します。</li>
-      <li>完全な新規状態で手紙が0件の場合は、Apple Accountを確認できなくても空の一覧と設定を表示できます。ただし、所有者を確認できるまで新しい手紙を確定・控えへ保存できません。入力した下書きはiOSのファイル保護を適用して端末内に保持し、iCloudを確認した後に再試行できます。未確定の下書きはアプリの削除や端末の消去により失われます。</li>
+      <li>完全な新規状態で手紙が0件の場合は、Apple Accountを確認できなくても空の一覧と設定を表示できます。ただし、所有者を確認できるまで新しい手紙の作成を開始・確定できず、所有者のない下書きを新たに作りません。公開V1から残る所有者のない下書きは内容を表示せず、既存手紙と一緒に明示的な一度限りの引き継ぎを完了するまで、iOSのファイル保護を適用して端末内で保護します。</li>
     </ul>
 
     <h2>権限について</h2>
@@ -111,7 +111,7 @@
       <li>If existing letters or an owner-bound device copy are associated with iCloud, and you sign out, switch to a different Apple Account, or turn off iCloud for the App, Unletter does not present the situation as an empty Letterbox. It stops without changing letter data and explains what to check.</li>
       <li>The App offers a recovery candidate only when it can verify the same Apple Account, verify the integrity of the device copy, and find content missing from the sync store. Recovery occurs only after you explicitly choose it.</li>
       <li>If another device still runs V1.0, a letter deleted on that device has no V1.1 deletion record. The App therefore warns that recovery candidates may include such a letter and asks you to confirm again before recovery.</li>
-      <li>In a completely new state with no letters, the App can show the empty Letterbox and Settings before it can verify an Apple Account. It cannot finalize a new letter or save its integrity-checked copy until it verifies the owner. An unfinished draft is kept on the device with iOS file protection so you can retry after checking iCloud. Deleting the App or erasing the device removes that unfinished draft.</li>
+      <li>In a completely new state with no letters, the App can show the empty Letterbox and Settings before it can verify an Apple Account. It cannot start or finalize a new letter and does not create an ownerless draft until it verifies the owner. An ownerless draft left by V1 remains hidden and protected with iOS file protection until you complete the explicit one-time transfer together with your existing letters.</li>
     </ul>
 
     <h2>Permissions</h2>
