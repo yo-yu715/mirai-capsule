@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unletter — プライバシーポリシー</title>
+<link rel="canonical" href="https://unletter.unbarria.com/privacy.html">
+<link rel="icon" href="seal.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
   :root{
     --bg:#FAF8F3; --ink:#1B1B1E; --inkSoft:#6E6B66; --inkFaint:#AAA59C;
@@ -36,35 +40,47 @@
   <div class="wrap">
     <a class="back" href="index.html">← サポートトップへ</a>
     <h1>プライバシーポリシー</h1>
-    <p class="updated">最終更新日: 2026年7月7日</p>
+    <p class="updated">最終更新日: 2026年8月22日</p>
 
     <p><b>Unletter</b>（以下「本アプリ」）は、ユーザーのプライバシーを尊重します。</p>
 
     <h2>収集する情報</h2>
-    <p>本アプリは、ユーザーの個人情報を収集・送信・共有しません。</p>
+    <p>開発元は、ユーザーの個人情報や手紙の内容を収集しません。本アプリは解析・広告・トラッキングSDKを使用せず、手紙の内容を開発元のサーバーへ送信しません。</p>
+
+    <h2>手紙の保存と同期</h2>
     <ul>
-      <li>作成した手紙（メッセージ、メモ、写真、音声、開封日などのデータ）は、あなたの iCloud（プライベートデータベース）に保管され、同じ Apple アカウントでサインインした端末間で同期されます。端末上のデータは iCloud の同期コピーです。</li>
-      <li>iCloud からサインアウトした場合、別の Apple アカウントに切り替えた場合、または本アプリの iCloud 設定をオフにした場合は、iOS の仕様により、その端末では手紙が表示されなくなります。手紙のデータはあなたの iCloud に残っており、元の Apple アカウントでサインインし直すと元通りに表示されます。</li>
-      <li>iCloud をお使いでない場合（未サインイン、または本アプリの iCloud 設定がオフの場合）、手紙はお使いの端末の中だけに保存されます。この場合、アプリを削除したり端末を初期化すると手紙も失われますので、iCloud の利用をおすすめします。</li>
-      <li>iCloud 上のデータはあなたのアカウント内に保管され、開発元を含む第三者がアクセスすることはありません。</li>
-      <li>解析ツールや広告ツールは使用していません。</li>
+      <li>作成した手紙（メッセージ、メモ、写真、音声、宛先、開封日、開封状態など）は、お使いの端末と<b>あなたのiCloudプライベートデータベース</b>に保存され、同じApple Accountでサインインした端末間で同期されます。開発元はプライベートデータベースの内容へアクセスできません。</li>
+      <li>本アプリは、iCloud同期ストアとは別に、本文と添付の整合性をSHA-256で確認できる控えをこの端末にも保存します。手紙と控えの索引は現世代と前世代の二世代を保持し、iOSの完全ファイル保護を適用します。この控えはアプリ専用領域にあり、アプリを削除すると失われます。</li>
+      <li>V1.1への更新前に、既存の保存データと写真・音声を端末内へ退避し、ファイル数・サイズ・SHA-256を検証します。更新後の手紙と控えが正常と確認された退避データは、30日経過後の次回起動時に削除対象となります。手紙を明示的に削除した場合は、古い内容を復元しないため、更新前の退避データも削除します。</li>
+      <li>端末内控えを別のApple Accountへ誤って復元しないため、CloudKitが提供するアカウント識別子から不可逆なハッシュを端末内で作成して照合します。元の識別子やハッシュを開発元へ送信しません。</li>
+      <li>手紙を明示的に削除すると、本文、添付、端末内の現世代・前世代控えを削除します。別端末の古い控えから手紙が復活しないよう、ランダムな手紙識別子と削除日時だけを含む削除記録をあなたのプライベートiCloudへ同期します。</li>
+      <li>「大切な人へ」は、自分のUnletterへ保管し、選んだ日に同じ端末でその人と一緒にひらく機能です。V1.1は別の人の端末への手紙の送信・受信や共有リンクを提供しません。</li>
+    </ul>
+
+    <h2>iCloudと復旧</h2>
+    <ul>
+      <li>公開V1はApple Accountの所有者記録を端末内に保存していませんでした。V1.1への初回更新では、既存手紙を表示せず、これまでUnletterを使用していたApple AccountでiCloudにサインインしていることを確認する画面を表示します。ユーザーが明示的に同意した場合だけ、現在確認できたApple Accountへ一度限りで引き継ぎます。中断した引き継ぎは同じAccountでだけ再開し、完了後に所有者情報を確認できない場合は別Accountへ再設定しません。</li>
+      <li>iCloudと紐づいた既存手紙または所有者情報付きの控えがある状態で、iCloudからサインアウトした場合、別のApple Accountに切り替えた場合、または本アプリのiCloud設定をオフにした場合、本アプリは手紙を空の文箱として表示せず、データを変更しない状態で確認を促します。</li>
+      <li>同じApple Accountであることと控えの整合性を確認でき、同期ストアに不足がある場合に限り、本アプリは復旧候補を表示します。復旧はユーザーが明示的に選んだ場合だけ行います。</li>
+      <li>別端末がV1.0のままの場合、その端末で削除した手紙にはV1.1の削除記録がありません。このため復旧候補に削除済みの手紙が含まれる可能性を画面内で案内し、復旧前にもう一度確認します。</li>
+      <li>完全な新規状態で手紙が0件の場合は、Apple Accountを確認できなくても空の一覧と設定を表示できます。ただし、所有者を確認できるまで新しい手紙を確定・控えへ保存できません。入力した下書きはiOSのファイル保護を適用して端末内に保持し、iCloudを確認した後に再試行できます。未確定の下書きはアプリの削除や端末の消去により失われます。</li>
     </ul>
 
     <h2>権限について</h2>
     <ul>
-      <li><b>マイク</b>: 音声メッセージを録音する場合にのみ使用します。録音した音声は端末内に保存されます。</li>
+      <li><b>マイク</b>: 音声メッセージを録音する場合にのみ使用します。録音は端末に保存され、iCloudが有効な場合はあなたのプライベートデータベースへ同期されます。</li>
       <li><b>通知</b>: 手紙の開封日をお知らせするために使用します。</li>
-      <li><b>写真</b>: あなたが選んだ写真のみを手紙に追加します。写真ライブラリ全体にはアクセスしません。</li>
+      <li><b>写真</b>: あなたが選んだ写真だけを手紙へ追加します。写真ライブラリ全体の内容を収集しません。</li>
     </ul>
 
     <h2>課金について</h2>
-    <p>アプリ内課金（Pro）の決済は Apple（App Store）が処理します。本アプリが決済情報を受け取ることはありません。</p>
+    <p>アプリ内課金（Pro）の決済はApple（App Store）が処理します。本アプリが決済情報を受け取ることはありません。</p>
 
     <h2>データの管理</h2>
     <ul>
-      <li>アプリを削除すると、端末内のデータは消去されます。iCloud に保管されたデータは削除されず、同じ Apple アカウントで再インストールすると同期されて戻ります。</li>
-      <li>iCloud をお使いでない場合は、アプリを削除するとすべてのデータが消去され、復元できません。</li>
-      <li>iCloud 上のデータを完全に削除したい場合は、iOS の「設定」→ アカウント名 → 「iCloud」→「保存容量を管理」から本アプリのデータを削除できます。<b>この操作を行うと手紙は端末からも消え、復元できなくなります</b>のでご注意ください。</li>
+      <li>本アプリ内で手紙を削除すると、その手紙と端末内控えが削除対象となり、削除記録がiCloudへ同期されます。</li>
+      <li>アプリを削除すると、端末内の同期ストア、検証済み控え、更新前退避は削除されます。iCloudに保存済みのデータはアプリの削除だけでは消えず、同じApple Accountで再インストールすると同期されます。</li>
+      <li>iCloud上の本アプリのデータ全体を削除する場合は、iOSの「設定」からApple AccountのiCloudストレージを管理し、Unletterのデータを削除してください。この操作は復元できません。</li>
     </ul>
 
     <h2>お問い合わせ</h2>
@@ -73,12 +89,50 @@
     <hr>
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: July 7, 2026</p>
-    <p><b>Unletter</b> ("the App") respects your privacy. The App does not collect, transmit, or share any personal information. All letters you create (messages, memos, photos, audio, open dates) are stored in your private iCloud database and synced across devices signed in with the same Apple Account; the data on your device is a synced copy. Data in iCloud stays within your account; no third party, including the developer, can access it. The App uses no analytics or advertising tools.</p>
-    <p>If you sign out of iCloud, switch to a different Apple Account, or turn off iCloud for the App, iOS hides your letters on that device; they remain in your iCloud and reappear when you sign back in with the original Apple Account. If you do not use iCloud, your letters are stored only on your device, and deleting the App or erasing the device also erases them — we recommend keeping iCloud on.</p>
-    <p>Microphone is used only when you record a voice message. Notifications remind you when a letter becomes openable. Only photos you choose are added. In-app purchases are processed by Apple.</p>
-    <p>Deleting the App removes the on-device copy; data in your iCloud is not deleted and syncs back when you reinstall with the same Apple Account. To permanently delete your iCloud data, go to iOS Settings → your name → iCloud → Manage Account Storage and delete the App's data. <b>This also removes the letters from your device and cannot be undone.</b></p>
-    <p>Contact: <a href="mailto:unletter@unbarria.com">unletter@unbarria.com</a></p>
+    <p class="updated">Last updated: August 22, 2026</p>
+    <p><b>Unletter</b> ("the App") respects your privacy.</p>
+
+    <h2>Information We Collect</h2>
+    <p>The developer does not collect your personal information or letter contents. The App uses no analytics, advertising, or tracking SDKs, and it does not send letter contents to a developer-operated server.</p>
+
+    <h2>Letter Storage and Sync</h2>
+    <ul>
+      <li>Letters you create—including messages, memos, photos, audio, recipient details, open dates, and open state—are stored on your device and in <b>your private iCloud database</b>, then synced across devices signed in with the same Apple Account. The developer cannot access the contents of your private database.</li>
+      <li>Separate from the iCloud sync store, the App keeps an on-device copy whose letter contents and attachments can be integrity-checked with SHA-256. It keeps the current and previous generations of each letter and the copy index, protected by complete iOS file protection. This copy is in the App’s private container and is removed if you delete the App.</li>
+      <li>Before the V1.1 update opens existing data, the App makes an on-device copy of the store and externally stored photos and audio, then verifies file counts, sizes, and SHA-256 values. Once the updated letters and integrity-checked copies have been verified, this pre-update copy becomes eligible for deletion on an App launch after 30 days. Explicitly deleting a letter also removes the pre-update copy so old content cannot be restored accidentally.</li>
+      <li>To prevent a device copy from being restored under a different Apple Account, the App derives a one-way hash from the account identifier supplied by CloudKit and compares it on the device. Neither the original identifier nor its hash is sent to the developer.</li>
+      <li>When you explicitly delete a letter, the App removes its contents, attachments, and current and previous on-device copies. To prevent an old copy on another device from restoring it, a deletion record containing only a random letter identifier and deletion time is synced through your private iCloud database.</li>
+      <li>“To someone dear” keeps a letter in your Unletter so you can open it together on the same device on the day you choose. V1.1 does not send or receive letters on another person’s device and does not create sharing links.</li>
+    </ul>
+
+    <h2>iCloud and Recovery</h2>
+    <ul>
+      <li>Public V1 did not store an Apple Account owner record on the device. On the first V1.1 update, existing letters remain hidden while the App asks you to confirm that iCloud is signed in with the Apple Account you previously used for Unletter. Only after your explicit consent does the App transfer them once to the currently verified Apple Account. An interrupted transfer resumes only with that same account, and missing owner evidence after completion is not reassigned to a different account.</li>
+      <li>If existing letters or an owner-bound device copy are associated with iCloud, and you sign out, switch to a different Apple Account, or turn off iCloud for the App, Unletter does not present the situation as an empty Letterbox. It stops without changing letter data and explains what to check.</li>
+      <li>The App offers a recovery candidate only when it can verify the same Apple Account, verify the integrity of the device copy, and find content missing from the sync store. Recovery occurs only after you explicitly choose it.</li>
+      <li>If another device still runs V1.0, a letter deleted on that device has no V1.1 deletion record. The App therefore warns that recovery candidates may include such a letter and asks you to confirm again before recovery.</li>
+      <li>In a completely new state with no letters, the App can show the empty Letterbox and Settings before it can verify an Apple Account. It cannot finalize a new letter or save its integrity-checked copy until it verifies the owner. An unfinished draft is kept on the device with iOS file protection so you can retry after checking iCloud. Deleting the App or erasing the device removes that unfinished draft.</li>
+    </ul>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><b>Microphone</b>: used only when you record a voice message. The recording is stored on the device and, when iCloud is enabled, synced to your private database.</li>
+      <li><b>Notifications</b>: used to remind you when a letter becomes openable.</li>
+      <li><b>Photos</b>: only photos you choose are added to a letter. The App does not collect the contents of your library.</li>
+    </ul>
+
+    <h2>Purchases</h2>
+    <p>In-app purchases (Pro) are processed by Apple through the App Store. The App never receives your payment information.</p>
+
+    <h2>Data Management</h2>
+    <ul>
+      <li>Deleting a letter in the App schedules removal of that letter and its on-device copies and syncs its deletion record.</li>
+      <li>Deleting the App removes the on-device sync store, integrity-checked copies, and pre-update copy. Data already stored in iCloud is not removed merely by deleting the App and can sync back after reinstalling with the same Apple Account.</li>
+      <li>To delete all of the App’s iCloud data, manage your Apple Account’s iCloud storage in iOS Settings and delete Unletter’s data. This action cannot be undone.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p><a href="mailto:unletter@unbarria.com">unletter@unbarria.com</a></p>
   </div>
 </body>
 </html>
