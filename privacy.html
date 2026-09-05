@@ -40,7 +40,7 @@
   <div class="wrap">
     <a class="back" href="index.html">← サポートトップへ</a>
     <h1>プライバシーポリシー</h1>
-    <p class="updated">最終更新日: 2026年8月22日</p>
+    <p class="updated">最終更新日: 2026年9月5日</p>
 
     <p><b>Unletter</b>（以下「本アプリ」）は、ユーザーのプライバシーを尊重します。</p>
 
@@ -50,8 +50,8 @@
     <h2>手紙の保存と同期</h2>
     <ul>
       <li>作成した手紙（メッセージ、メモ、写真、音声、宛先、開封日、開封状態など）は、お使いの端末と<b>あなたのiCloudプライベートデータベース</b>に保存され、同じApple Accountでサインインした端末間で同期されます。開発元はプライベートデータベースの内容へアクセスできません。</li>
-      <li>本アプリは、iCloud同期ストアとは別に、本文と添付の整合性をSHA-256で確認できる控えをこの端末にも保存します。手紙と控えの索引は現世代と前世代の二世代を保持し、iOSの完全ファイル保護を適用します。この控えはアプリ専用領域にあり、アプリを削除すると失われます。</li>
-      <li>V1.1への更新前に、既存の保存データと写真・音声を端末内へ退避し、ファイル数・サイズ・SHA-256を検証します。更新後の手紙と控えが正常と確認された退避データは、30日経過後の次回起動時に削除対象となります。手紙を明示的に削除した場合は、古い内容を復元しないため、更新前の退避データも削除します。</li>
+      <li>本アプリは、iCloud同期ストアとは別に、本文と添付の整合性をSHA-256で確認できる控えをこの端末にも保存します。手紙と控えの索引は現世代と前世代の二世代を保持し、iOSの完全ファイル保護を適用します。同期に使用する稼働中のストアには、ロック前に開いたファイルをロック後も使用できる保護を適用します。この控えはアプリ専用領域にあり、アプリを削除すると失われます。</li>
+      <li>V1.1への更新前に、既存の保存データと写真・音声を端末内へ退避し、ファイル数・サイズ・SHA-256を検証します。V1.1では、更新前の退避データを経過日数により自動削除せず、アプリ専用領域に保持します。アプリを削除すると退避データも失われます。手紙を明示的に削除した場合は、古い内容を復元しないため、更新前の退避データも削除します。</li>
       <li>端末内控えを別のApple Accountへ誤って復元しないため、CloudKitが提供するアカウント識別子から不可逆なハッシュを端末内で作成して照合します。元の識別子やハッシュを開発元へ送信しません。</li>
       <li>手紙を明示的に削除すると、本文、添付、端末内の現世代・前世代控えを削除します。別端末の古い控えから手紙が復活しないよう、ランダムな手紙識別子と削除日時だけを含む削除記録をあなたのプライベートiCloudへ同期します。</li>
       <li>「大切な人へ」は、自分のUnletterへ保管し、選んだ日に同じ端末でその人と一緒にひらく機能です。V1.1は別の人の端末への手紙の送信・受信や共有リンクを提供しません。</li>
@@ -89,7 +89,7 @@
     <hr>
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: August 22, 2026</p>
+    <p class="updated">Last updated: September 5, 2026</p>
     <p><b>Unletter</b> ("the App") respects your privacy.</p>
 
     <h2>Information We Collect</h2>
@@ -98,8 +98,8 @@
     <h2>Letter Storage and Sync</h2>
     <ul>
       <li>Letters you create—including messages, memos, photos, audio, recipient details, open dates, and open state—are stored on your device and in <b>your private iCloud database</b>, then synced across devices signed in with the same Apple Account. The developer cannot access the contents of your private database.</li>
-      <li>Separate from the iCloud sync store, the App keeps an on-device copy whose letter contents and attachments can be integrity-checked with SHA-256. It keeps the current and previous generations of each letter and the copy index, protected by complete iOS file protection. This copy is in the App’s private container and is removed if you delete the App.</li>
-      <li>Before the V1.1 update opens existing data, the App makes an on-device copy of the store and externally stored photos and audio, then verifies file counts, sizes, and SHA-256 values. Once the updated letters and integrity-checked copies have been verified, this pre-update copy becomes eligible for deletion on an App launch after 30 days. Explicitly deleting a letter also removes the pre-update copy so old content cannot be restored accidentally.</li>
+      <li>Separate from the iCloud sync store, the App keeps an on-device copy whose letter contents and attachments can be integrity-checked with SHA-256. It keeps the current and previous generations of each letter and the copy index, protected by complete iOS file protection. The active sync store uses protection that allows files opened before locking to remain accessible while the device is locked. This copy is in the App’s private container and is removed if you delete the App.</li>
+      <li>Before the V1.1 update opens existing data, the App makes an on-device copy of the store and externally stored photos and audio, then verifies file counts, sizes, and SHA-256 values. V1.1 does not automatically delete this pre-update copy based on its age. It remains in the App’s private container and is removed if you delete the App. Explicitly deleting a letter also removes the pre-update copy so old content cannot be restored accidentally.</li>
       <li>To prevent a device copy from being restored under a different Apple Account, the App derives a one-way hash from the account identifier supplied by CloudKit and compares it on the device. Neither the original identifier nor its hash is sent to the developer.</li>
       <li>When you explicitly delete a letter, the App removes its contents, attachments, and current and previous on-device copies. To prevent an old copy on another device from restoring it, a deletion record containing only a random letter identifier and deletion time is synced through your private iCloud database.</li>
       <li>“To someone dear” keeps a letter in your Unletter so you can open it together on the same device on the day you choose. V1.1 does not send or receive letters on another person’s device and does not create sharing links.</li>
