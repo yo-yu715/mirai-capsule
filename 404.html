@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Unletter</title>
+<style>html{color-scheme:light;background:#faf7f1;color:#352f28;font:17px/1.8 system-ui}main{max-width:30rem;margin:12vh auto;padding:2rem}h1{font:500 1.9rem/1.5 Georgia,serif}a{color:inherit;text-underline-offset:.3em}button{font:inherit;color:inherit;background:transparent;border:1px solid #8b7662;border-radius:.5rem;padding:.6rem 1rem;cursor:pointer}[hidden]{display:none}</style>
+</head><body><main>
+<section id="missing"><h1>ページが見つかりません</h1><a href="/">Unletterのホームへ</a></section>
+<section id="letter" hidden><h1 id="title">Unletterで手紙を受け取る</h1>
+<p id="intro">アプリをインストールまたは更新したら、送り主のリンクをもう一度開いてください。</p>
+<p id="help">アプリが開かないときは、このリンクをコピーして文箱の「届いた手紙」に貼り付けてください。</p>
+<p><button id="copy" type="button">受取リンクをコピー</button></p><p id="notice" role="status" aria-live="polite"></p>
+<a id="store" href="https://apps.apple.com/app/id6777921284" rel="noreferrer">App StoreでUnletterを見る</a></section>
+</main><script>
+(function(){
+ if(!/^\/l\/[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/.test(location.pathname)||location.search)return;
+ document.getElementById('missing').hidden=true;document.getElementById('letter').hidden=false;
+ var en=!/^ja\b/i.test(navigator.language||'ja');
+ if(en){document.documentElement.lang='en';document.getElementById('title').textContent='Receive a letter in Unletter';
+ document.getElementById('intro').textContent='After installing or updating the app, open the sender’s link again.';
+ document.getElementById('help').textContent='If the app does not open, copy this link and paste it into “Received letters” in your letter box.';
+ document.getElementById('copy').textContent='Copy recipient link';document.getElementById('store').textContent='Get Unletter on the App Store';}
+ document.title=document.getElementById('title').textContent+' | Unletter';
+ document.getElementById('copy').addEventListener('click',async function(){
+ try{await navigator.clipboard.writeText(location.href);document.getElementById('notice').textContent=en?'Link copied.':'リンクをコピーしました。';}
+ catch(e){document.getElementById('notice').textContent=en?'Copy the full address from your browser’s address bar.':'ブラウザのアドレスバーからリンク全体をコピーしてください。';}
+ });
+})();
+</script></body></html>
