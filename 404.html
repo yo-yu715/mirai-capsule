@@ -4,10 +4,11 @@
 <meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
 <title>Unletter</title>
-<style>html{color-scheme:light;background:#faf7f1;color:#352f28;font:17px/1.8 system-ui}main{max-width:30rem;margin:12vh auto;padding:2rem}h1{font:500 1.9rem/1.5 Georgia,serif}a{color:inherit;text-underline-offset:.3em}button{font:inherit;color:inherit;background:transparent;border:1px solid #8b7662;border-radius:.5rem;padding:.6rem 1rem;cursor:pointer}[hidden]{display:none}</style>
+<style>html{color-scheme:light;background:#faf7f1;color:#352f28;font:17px/1.8 system-ui}main{max-width:30rem;margin:12vh auto;padding:2rem}h1{font:500 1.9rem/1.5 Georgia,serif}a{color:inherit;text-underline-offset:.3em}button{font:inherit;color:inherit;background:transparent;border:1px solid #8b7662;border-radius:.5rem;padding:.6rem 1rem;cursor:pointer}[hidden]{display:none}#address{font:500 1.5rem/1.6 Georgia,"Yu Mincho",serif;margin:0 0 2rem;overflow-wrap:anywhere}#address p{margin:.25rem 0}#sender{font-size:1.1rem;color:#6e6358}[hidden]{display:none}</style>
 </head><body><main>
 <section id="missing"><h1>ページが見つかりません</h1><a href="/">Unletterのホームへ</a></section>
-<section id="letter" hidden><h1 id="title">Unletterで手紙を受け取る</h1>
+<section id="letter" hidden><div id="address" hidden><p id="sender"></p><p id="recipient"></p></div><h1 id="title">Unletterで手紙を受け取る</h1>
+<p id="device">受け取りにはiPhoneまたはiPadが必要です。Unletterはリンク到着後にインストールできます。</p>
 <p id="intro">アプリをインストールまたは更新したら、送り主のリンクをもう一度開いてください。</p>
 <p id="help">アプリが開かないときは、このリンクをコピーして文箱の「届いた手紙」に貼り付けてください。</p>
 <p><button id="copy" type="button">受取リンクをコピー</button></p><p id="notice" role="status" aria-live="polite"></p>
@@ -18,9 +19,34 @@
  document.getElementById('missing').hidden=true;document.getElementById('letter').hidden=false;
  var en=!/^ja\b/i.test(navigator.language||'ja');
  if(en){document.documentElement.lang='en';document.getElementById('title').textContent='Receive a letter in Unletter';
+ document.getElementById('device').textContent='You need an iPhone or iPad to receive this letter. You can install Unletter after the link arrives.';
  document.getElementById('intro').textContent='After installing or updating the app, open the sender’s link again.';
  document.getElementById('help').textContent='If the app does not open, copy this link and paste it into “Received letters” in your letter box.';
  document.getElementById('copy').textContent='Copy recipient link';document.getElementById('store').textContent='Get Unletter on the App Store';}
+ (function renderDeliveryAddress() {
+  try {
+    const fields = new Map()
+    for (const field of location.hash.slice(1).split('&')) {
+      const split = field.indexOf('=')
+      if (split < 1 || fields.has(field.slice(0, split))) return
+      fields.set(field.slice(0, split), field.slice(split + 1))
+    }
+    if (fields.size !== 5 || !['v', 't', 'k', 'from', 'to'].every(k => fields.has(k)) || fields.get('v') !== '1') return
+    if (!['t', 'k'].every(k => /^[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$/.test(fields.get(k))) || fields.get('t') === fields.get('k')) return
+    function name(key) {
+      const encoded = fields.get(key)
+      if (encoded.length > 960) throw new Error('Invalid name')
+      const value = decodeURIComponent(encoded).trim()
+      if (!value || [...value].length > 80 || new TextEncoder().encode(value).length > 320 || /[\u0000-\u001f\u007f-\u009f\u2028\u2029]/u.test(value)) throw new Error('Invalid name')
+      return value
+    }
+    const sender = name('from'), recipient = name('to')
+    const en = !/^ja\b/i.test(navigator.language || 'ja')
+    document.getElementById('sender').textContent = en ? 'From ' + sender : sender + 'より'
+    document.getElementById('recipient').textContent = en ? 'To ' + recipient : recipient + 'へ'
+    document.getElementById('address').hidden = false
+  } catch (_) { /* Legacy and incomplete links keep the generic introduction. */ }
+})();
  document.title=document.getElementById('title').textContent+' | Unletter';
  document.getElementById('copy').addEventListener('click',async function(){
  try{await navigator.clipboard.writeText(location.href);document.getElementById('notice').textContent=en?'Link copied.':'リンクをコピーしました。';}
@@ -28,3 +54,4 @@
  });
 })();
 </script></body></html>
+
