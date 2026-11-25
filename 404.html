@@ -31,7 +31,7 @@
       if (split < 1 || fields.has(field.slice(0, split))) return
       fields.set(field.slice(0, split), field.slice(split + 1))
     }
-    if (fields.size !== 5 || !['v', 't', 'k', 'from', 'to'].every(k => fields.has(k)) || fields.get('v') !== '1') return
+    if (fields.size - (fields.has('cover') ? 1 : 0) !== 5 || !['v', 't', 'k', 'from', 'to'].every(k => fields.has(k)) || fields.get('v') !== '1') return
     if (!['t', 'k'].every(k => /^[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$/.test(fields.get(k))) || fields.get('t') === fields.get('k')) return
     function name(key) {
       const encoded = fields.get(key)
