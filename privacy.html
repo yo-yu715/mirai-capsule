@@ -40,12 +40,12 @@
   <div class="wrap">
     <a class="back" href="index.html">← サポートトップへ</a>
     <h1>プライバシーポリシー</h1>
-    <p class="updated">最終更新日: 2026年11月12日</p>
+    <p class="updated">最終更新日: 2026年11月26日</p>
 
     <p><b>Unletter</b>（以下「本アプリ」）は、ユーザーのプライバシーを尊重します。</p>
 
     <h2>収集する情報</h2>
-    <p>開発元は、手紙の内容を開発元のサーバーへ収集・送信しません。広告対応版で使用する外部サービスのデータ処理については、以下の「広告とプライバシーの選択」をご確認ください。広告機能を搭載していない従来版には、広告に関する処理は適用されません。</p>
+    <p>自分の端末に保管する手紙の内容を、配送サーバーへ自動送信することはありません。V1.2以降で利用者が受取リンクを作成した場合は、手紙と添付を端末で暗号化して配送サーバーへ送信します。復号鍵は配送サーバーへ送信しません。広告対応版で使用する外部サービスのデータ処理については、以下の「広告とプライバシーの選択」をご確認ください。広告機能を搭載していない従来版には、広告に関する処理は適用されません。</p>
 
     <h2 id="advertising">広告とプライバシーの選択</h2>
     <p>広告機能を有効にしたバージョンの無料プランでは、手紙が保存されている場合、手紙一覧の末尾にGoogle AdMobの広告を表示することがあります。Proでは広告を表示・リクエストしません。手紙の本文、メモ、宛先、写真、音声、開封日を広告リクエストや広告ターゲティングへ渡しません。</p>
@@ -62,6 +62,16 @@
       <li>端末内控えを別のApple Accountへ誤って復元しないため、CloudKitが提供するアカウント識別子から不可逆なハッシュを端末内で作成して照合します。元の識別子やハッシュを開発元へ送信しません。</li>
       <li>手紙を明示的に削除すると、本文、添付、端末内の現世代・前世代控えを削除します。iCloud同期がオンで接続できたときに、手紙識別子、削除日時、対象の内容とアカウントを照合する不可逆な指紋を含む削除記録を、同じApple AccountのiCloudプライベートデータベースにも保存し、同期中のV1.1端末へ同じ手紙の削除を反映します。削除記録に本文、写真、音声そのものは含みません。</li>
       <li>「大切な人へ」は、自分のUnletterへ保管し、選んだ日に同じ端末でその人と一緒にひらく機能です。V1.1は別の人の端末への手紙の送信・受信や共有リンクを提供しません。</li>
+    </ul>
+
+    <h2>手紙の送信と受取（V1.2以降）</h2>
+    <ul>
+      <li>受取リンクを作成すると、題名、本文、メモ、差出人・宛名、開封日時、写真、音声などを端末で暗号化し、Cloudflareの配送基盤へ一時保存します。配送サーバーが保持するのは暗号文で、復号鍵は保持しません。</li>
+      <li>共有するリンクには受取用の秘密情報と復号鍵が含まれます。差出人・宛名、開封日時、封蝋、プレビュー用のメモもリンクに含まれる場合があります。リンクを知る人は受取操作や外側の情報の閲覧ができるため、渡したい相手にだけ共有してください。リンクを送る際に選んだメッセージサービス等にも、そのサービスの取扱いに従ってリンクが保存される場合があります。</li>
+      <li>配送のため、配送ID、端末の登録・認証情報（App Attest）、受取期限、データ量・整合性の指紋、受取開始・保存完了の記録を保存します。通信時のIPアドレスはアクセス制限・不正利用防止に使用します。開封したかどうかを送り主へ通知する機能はありません。</li>
+      <li>受取期限は最大90日です。受取開始後の取得猶予を含む配送の終了、期限切れ、または配布停止の後、定期処理で暗号文を削除します。配送メタデータは暗号文の削除確認から90日後に削除対象になります。定期処理の障害等によって削除が遅れる場合があります。</li>
+      <li>受け取って保存した手紙は受取側の端末に残ります。受取期限や配布停止は、保存済みの手紙を消去しません。受け取った手紙は自分で作成した手紙のiCloud同期とは別に端末へ保管します。アプリを削除すると端末内の受取データも失われます。</li>
+      <li>配送データは配送、保存確認、購入権の適用、不正利用防止に使用し、広告ターゲティングに使用しません。Cloudflareによる通信・サービス運用上の処理については、<a href="https://www.cloudflare.com/privacypolicy/">Cloudflareプライバシーポリシー</a>もご確認ください。</li>
     </ul>
 
     <h2>iCloudと復旧</h2>
@@ -83,7 +93,7 @@
     </ul>
 
     <h2>課金について</h2>
-    <p>アプリ内課金（Pro）の決済はApple（App Store）が処理します。本アプリが決済情報を受け取ることはありません。</p>
+    <p>Proと送信権の決済はApple（App Store）が処理し、本アプリや配送サーバーはカード番号・銀行口座情報を取得しません。送信機能ではApple署名済みのアプリ購入識別子、Pro・送信権の取引識別子、商品・返金状態を照合し、初回無料枠と送信権の使用記録を配送サーバーに保存します。未使用の送信権を保持し、同じ購入の二重使用を防ぐため、この課金台帳は配送データの期限が切れても自動削除しません。削除に関するご相談は下記のお問い合わせ先へご連絡ください。秘密鍵や受取リンク全体をメールに貼り付ける必要はありません。</p>
 
     <h2>データの管理</h2>
     <ul>
@@ -98,11 +108,11 @@
     <hr>
 
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: November 12, 2026</p>
+    <p class="updated">Last updated: November 26, 2026</p>
     <p><b>Unletter</b> ("the App") respects your privacy.</p>
 
     <h2>Information We Collect</h2>
-    <p>The developer does not collect or send letter contents to a developer-operated server. Data processing by external services in ad-supported versions is described under “Advertising and privacy choices” below. Advertising-related processing does not apply to earlier versions without advertising features.</p>
+    <p>Letters kept on your device are not automatically sent to the delivery server. In V1.2 and later, when you choose to create a receiving link, the App encrypts the letter and attachments on your device and uploads the encrypted data to the delivery server. The decryption key is not sent to that server. Data processing by external services in ad-supported versions is described under “Advertising and privacy choices” below. Advertising-related processing does not apply to earlier versions without advertising features.</p>
 
     <h2 id="advertising-en">Advertising and privacy choices</h2>
     <p>In versions with advertising enabled, the Free plan may display a Google AdMob ad at the end of the letter list when letters are saved. Pro does not display or request ads. Letter text, memos, recipients, photos, audio, and opening dates are not passed to ad requests or ad targeting.</p>
@@ -119,6 +129,16 @@
       <li>To prevent a device copy from being restored under a different Apple Account, the App derives a one-way hash from the account identifier supplied by CloudKit and compares it on the device. Neither the original identifier nor its hash is sent to the developer.</li>
       <li>When you explicitly delete a letter, the App removes its contents, attachments, and current and previous on-device copies. When iCloud sync is on and connected, it also stores a deletion record in the same Apple Account’s private iCloud database and syncs deletion of the same letter to syncing V1.1 devices. The record contains a letter identifier, deletion time, and a one-way fingerprint used to match the content and account; it does not contain the text, photos, or audio themselves.</li>
       <li>“To someone dear” keeps a letter in your Unletter so you can open it together on the same device on the day you choose. V1.1 does not send or receive letters on another person’s device and does not create sharing links.</li>
+    </ul>
+
+    <h2>Sending and receiving letters (V1.2 and later)</h2>
+    <ul>
+      <li>Creating a receiving link encrypts the title, message, memo, sender and recipient names, opening date, photos, audio, and related letter information on your device, then temporarily stores the ciphertext on Cloudflare’s delivery infrastructure. The delivery server does not hold the decryption key.</li>
+      <li>The shared link contains the receiving secret and decryption key. It may also include sender and recipient names, the opening date, wax seal, and a preview memo. Anyone with the link may attempt to receive the letter or view its exterior information, so share it only with your intended recipient. The messaging service you choose may retain the shared link under its own practices.</li>
+      <li>To operate delivery, we retain delivery IDs, installation registration and authentication information (App Attest), expiry, sizes and integrity fingerprints, and records of receiving and saving. IP addresses are used for rate limiting and abuse prevention. The App does not tell senders whether a recipient has opened a letter.</li>
+      <li>Receiving links can remain available for up to 90 days. Scheduled cleanup removes ciphertext after delivery ends, expires, or is stopped, allowing for the download window of a receipt already started. Delivery metadata becomes eligible for deletion 90 days after ciphertext deletion is confirmed. Service failures may delay cleanup.</li>
+      <li>Letters saved by recipients remain on their devices. Link expiry or stopping distribution does not delete saved copies. Received letters are stored locally, separately from iCloud sync for letters you write. Deleting the App also removes its on-device received-letter data.</li>
+      <li>Delivery data is used for delivery, saving confirmation, purchase entitlements, and abuse prevention, not advertising targeting. See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare’s privacy policy</a> for its network and service operations.</li>
     </ul>
 
     <h2>iCloud and Recovery</h2>
@@ -140,7 +160,7 @@
     </ul>
 
     <h2>Purchases</h2>
-    <p>In-app purchases (Pro) are processed by Apple through the App Store. The App never receives your payment information.</p>
+    <p>Apple (App Store) processes Pro and delivery-credit payments. Neither the App nor the delivery server receives card numbers or bank account information. Delivery verifies Apple-signed app purchase identifiers, Pro and credit transaction identifiers, product information, and refund status. The delivery server retains records of the free allowance and credit use. To preserve unused credits and prevent a purchase being reused, this billing ledger is not automatically deleted when delivery data expires. Contact us below about deletion; do not email private keys or complete receiving links.</p>
 
     <h2>Data Management</h2>
     <ul>
@@ -154,3 +174,4 @@
   </div>
 </body>
 </html>
+
