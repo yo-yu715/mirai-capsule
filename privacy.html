@@ -61,7 +61,7 @@
       <li>V1.1への更新前に、既存の保存データと写真・音声を端末内へ退避し、ファイル数・サイズ・SHA-256を検証します。V1.1では、更新前の退避データを経過日数により自動削除せず、アプリ専用領域に保持します。アプリを削除すると退避データも失われます。手紙を明示的に削除した場合は、古い内容を復元しないため、更新前の退避データも削除します。</li>
       <li>端末内控えを別のApple Accountへ誤って復元しないため、CloudKitが提供するアカウント識別子から不可逆なハッシュを端末内で作成して照合します。元の識別子やハッシュを開発元へ送信しません。</li>
       <li>手紙を明示的に削除すると、本文、添付、端末内の現世代・前世代控えを削除します。iCloud同期がオンで接続できたときに、手紙識別子、削除日時、対象の内容とアカウントを照合する不可逆な指紋を含む削除記録を、同じApple AccountのiCloudプライベートデータベースにも保存し、同期中のV1.1端末へ同じ手紙の削除を反映します。削除記録に本文、写真、音声そのものは含みません。</li>
-      <li>「大切な人へ」は、自分のUnletterへ保管し、選んだ日に同じ端末でその人と一緒にひらく機能です。V1.1は別の人の端末への手紙の送信・受信や共有リンクを提供しません。</li>
+      <li>V1.1以前の「大切な人へ」は、自分のUnletterへ保管し、選んだ日に同じ端末でその人と一緒にひらく機能です。V1.1は別の人の端末への手紙の送信・受信や共有リンクを提供しません。</li>
     </ul>
 
     <h2>手紙の送信と受取（V1.2以降）</h2>
@@ -128,7 +128,7 @@
       <li>Before the V1.1 update opens existing data, the App makes an on-device copy of the store and externally stored photos and audio, then verifies file counts, sizes, and SHA-256 values. V1.1 does not automatically delete this pre-update copy based on its age. It remains in the App’s private container and is removed if you delete the App. Explicitly deleting a letter also removes the pre-update copy so old content cannot be restored accidentally.</li>
       <li>To prevent a device copy from being restored under a different Apple Account, the App derives a one-way hash from the account identifier supplied by CloudKit and compares it on the device. Neither the original identifier nor its hash is sent to the developer.</li>
       <li>When you explicitly delete a letter, the App removes its contents, attachments, and current and previous on-device copies. When iCloud sync is on and connected, it also stores a deletion record in the same Apple Account’s private iCloud database and syncs deletion of the same letter to syncing V1.1 devices. The record contains a letter identifier, deletion time, and a one-way fingerprint used to match the content and account; it does not contain the text, photos, or audio themselves.</li>
-      <li>“To someone dear” keeps a letter in your Unletter so you can open it together on the same device on the day you choose. V1.1 does not send or receive letters on another person’s device and does not create sharing links.</li>
+      <li>In V1.1 and earlier, “To someone dear” keeps a letter in your Unletter so you can open it together on the same device on the day you choose. V1.1 does not send or receive letters on another person’s device and does not create sharing links.</li>
     </ul>
 
     <h2>Sending and receiving letters (V1.2 and later)</h2>
