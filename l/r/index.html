@@ -2,7 +2,7 @@
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://unletter.unbarria.com; style-src 'unsafe-inline'; script-src 'sha256-+cVzVJ83X9k/fY5hsMPuJ879aOYS6avOMXzm+YBDO4I='; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://unletter.unbarria.com; style-src 'unsafe-inline'; script-src 'sha256-HVbUmYqmgnY4ErXjlNgKq8iif59t2iwUY4F5O3Ukfi0='; base-uri 'none'; form-action 'none'">
 <title>手紙が届いています — Unletter</title>
 <meta name="description" content="あなた宛ての手紙が届いています。Unletterで、ひらく日までそっと封のまま。">
 <meta name="theme-color" content="#FAFAFA">
@@ -64,6 +64,14 @@ details{margin-top:22px;color:var(--soft);font-size:12px}summary{cursor:pointer;
 </section><p class="footer">Unletter by Unbarria®</p>
 </main><script>(function () {
   const get = id => document.getElementById(id)
+  // Safari may reuse this document for another /l/r/#... invitation.
+  // Retire the old actions before reloading and validating the new fragment.
+  window.addEventListener('hashchange', function () {
+    get('letter').hidden = true
+    get('receive').hidden = true
+    get('receive').removeAttribute('href')
+    location.reload()
+  })
   const en = !/^ja\b/i.test(navigator.language || 'ja')
   const idPattern = /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/
   const sharedPage = location.pathname === '/l/r/' || location.pathname === '/l/'
