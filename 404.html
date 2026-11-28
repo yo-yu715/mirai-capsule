@@ -18,9 +18,9 @@
 :root{color-scheme:light;--ink:#18181b;--soft:#71717a;--faint:#8b8b92;--serif:"Hiragino Mincho ProN","Yu Mincho",Georgia,serif}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%}
 body{background:linear-gradient(180deg,#fefefe,#f7f7f6) fixed;color:var(--ink);font:14px/1.8 -apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;-webkit-font-smoothing:antialiased}
-main{width:min(100%,420px);margin:auto;padding:32px 26px calc(24px + env(safe-area-inset-bottom));text-align:center}
+main{width:min(100%,420px);min-height:100svh;display:flex;flex-direction:column;justify-content:center;margin:auto;padding:32px 26px calc(24px + env(safe-area-inset-bottom));text-align:center}
 p,h1,h2{margin:0}a{color:inherit}button,a,input,textarea{touch-action:manipulation}button,a{-webkit-tap-highlight-color:transparent}
-[hidden]{display:none!important}.wordmark{font:22px/1.4 var(--serif);letter-spacing:.06em;color:var(--soft);margin-bottom:30px}
+[hidden]{display:none!important}.wordmark{margin-bottom:34px;line-height:0}.brand-logo{display:block;width:148px;height:auto;margin:0 auto}.brand-environment{display:block;font:11px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--soft);margin-top:8px}
 h1{font:500 26px/1.5 var(--serif);letter-spacing:.025em}
 .address{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:16px;color:var(--soft)}
 .address-person{display:flex;align-items:baseline;justify-content:center;gap:7px;max-width:100%;min-width:0}
@@ -46,7 +46,7 @@ details{margin-top:12px;color:var(--soft);font-size:12px}summary{cursor:pointer;
 @media(min-height:900px){main{padding-top:54px}.wordmark{margin-bottom:38px}.env-wrap{margin-top:36px}}
 @media(min-width:700px){main{padding-top:64px}.env-wrap{width:280px}}
 </style></head><body><main>
-<div class="wordmark">Unletter</div>
+<div class="wordmark"><img class="brand-logo" src="/l/wordmark.png" width="660" height="139" alt="Unletter"></div>
 <section id="missing"><h1>ページが見つかりません</h1><p class="note"><a href="/">Unletterのホームへ</a></p></section>
 <section id="letter" hidden>
 <h1 id="title">手紙が届きました</h1>
