@@ -2,7 +2,7 @@
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://unletter.unbarria.com; style-src 'unsafe-inline'; script-src 'sha256-JQ1CL6IE6wt8OVO5Arl857eys7+bxB09a/dDPFMUFZI='; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://unletter.unbarria.com; style-src 'unsafe-inline'; script-src 'sha256-oAiUkWqNXAfpsM3L37HL6iHNrdKfscBCrKbtZSpAs4I='; base-uri 'none'; form-action 'none'">
 <title>手紙が届いています — Unletter</title>
 <meta name="description" content="あなた宛ての手紙が届いています。Unletterで、ひらく日までそっと封のまま。">
 <meta name="theme-color" content="#FAFAFA">
@@ -143,7 +143,10 @@ details{margin-top:12px;color:var(--soft);font-size:12px}summary{cursor:pointer;
     const host = location.hostname === 'unletter-relay-staging.yusuke-yoshida.workers.dev' ? location.hostname : 'unletter.unbarria.com'
     const fragment = [...fields].map(([k,v]) => k + '=' + v).join('&')
     canonical = 'https://' + host + '/l/' + id + '#' + fragment
-    get('receive').href = 'unletter-delivery://' + host + '/l/' + id + '#' + fragment
+    // Safari opens an associated HTTPS link on a different host in the installed app.
+    const handoffHost = location.hostname === 'unletter.unbarria.com'
+      ? 'unletter-relay-production.yusuke-yoshida.workers.dev' : host
+    get('receive').href = 'https://' + handoffHost + '/l/' + id + '#' + fragment
     get('receive').hidden = false
     get('help-details').hidden = false
     get('invalid').hidden = true

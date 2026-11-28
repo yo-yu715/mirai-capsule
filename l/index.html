@@ -1,176 +1,178 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light">
-<!-- 個人宛の私的なリンク。検索に出さない。 -->
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="あなた宛の手紙が届いています。Unletterで、封を開く日までそっとお預かりします。">
-<meta name="theme-color" content="#FAFAFA">
-<meta name="apple-itunes-app" content="app-id=6777921284">
-<meta property="og:site_name" content="Unletter">
-<meta property="og:type" content="website">
-<meta property="og:title" content="手紙が届いています — Unletter">
-<meta property="og:description" content="あなた宛の手紙が届いています。Unletterで、封を開く日までそっとお預かりします。">
-<meta property="og:url" content="https://unletter.unbarria.com/l/r/">
-<meta property="og:image" content="https://unletter.unbarria.com/l/link-preview.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="封蝋で閉じられた封筒">
-<meta name="twitter:card" content="summary_large_image">
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://unletter.unbarria.com; style-src 'unsafe-inline'; script-src 'sha256-oAiUkWqNXAfpsM3L37HL6iHNrdKfscBCrKbtZSpAs4I='; base-uri 'none'; form-action 'none'">
 <title>手紙が届いています — Unletter</title>
+<meta name="description" content="あなた宛ての手紙が届いています。Unletterで、ひらく日までそっと封のまま。">
+<meta name="theme-color" content="#FAFAFA">
+<meta property="og:site_name" content="Unletter"><meta property="og:type" content="website">
+<meta property="og:title" content="手紙が届いています — Unletter">
+<meta property="og:description" content="あなた宛ての手紙が届いています。Unletterで、ひらく日までそっと封のまま。">
+<meta property="og:image" content="https://unletter.unbarria.com/l/link-preview.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Unletterの封蝋で閉じられた封筒">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://unletter.unbarria.com/l/link-preview.png">
 <style>
-  /* アプリの世界観に合わせる：地は近白（ニュートラル）、手紙の object は温かい紙＋封蝋。
-     アプリは明色固定なので、このページも明色のみ。 */
-  :root{
-    --paper:#FAFAFA; --ink:#18181B; --ink-soft:#71717A; --ink-faint:#A1A1AA;
-    font-family:-apple-system,"Hiragino Mincho ProN","Hiragino Kaku Gothic ProN",serif;
+:root{color-scheme:light;--ink:#18181b;--soft:#71717a;--faint:#8b8b92;--serif:"Hiragino Mincho ProN","Yu Mincho",Georgia,serif}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%}
+body{background:linear-gradient(180deg,#fefefe,#f7f7f6) fixed;color:var(--ink);font:14px/1.8 -apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;-webkit-font-smoothing:antialiased}
+main{width:min(100%,420px);min-height:100svh;display:flex;flex-direction:column;justify-content:center;margin:auto;padding:32px 26px calc(24px + env(safe-area-inset-bottom));text-align:center}
+p,h1,h2{margin:0}a{color:inherit}button,a,input,textarea{touch-action:manipulation}button,a{-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}.wordmark{margin-bottom:34px;line-height:0}.brand-logo{display:block;width:148px;height:auto;margin:0 auto}.brand-environment{display:block;font:11px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--soft);margin-top:8px}
+h1{font:500 26px/1.5 var(--serif);letter-spacing:.025em}
+.address{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:16px;color:var(--soft)}
+.address-person{display:flex;align-items:baseline;justify-content:center;gap:7px;max-width:100%;min-width:0}
+.tag{flex:none;font:11px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;background:#f0f0f2;border-radius:5px;padding:2px 6px}
+.name{font:16px/1.6 var(--serif);overflow-wrap:anywhere;min-width:0}
+.env-wrap{position:relative;width:min(262px,88%);margin:30px auto 24px}
+.env-wrap:before{content:"";position:absolute;inset:0;background:rgba(24,24,27,.19);border-radius:12px;transform:translateY(15px) scale(.95);filter:blur(24px)}
+.envelope{position:relative;display:block;width:100%;height:auto}
+.open{font-size:12px;color:var(--soft);line-height:1.8;margin:0 auto;max-width:320px}
+.receive{display:flex;align-items:center;justify-content:center;min-height:54px;padding:10px 20px;margin:24px auto 0;border-radius:28px;background:#403b33;color:#fff;text-decoration:none;font-weight:600;font-size:16px;box-shadow:0 10px 24px rgba(41,35,27,.13)}
+.receive:active{transform:translateY(1px);box-shadow:0 5px 14px rgba(41,35,27,.12)}
+.device{font-size:12px;color:var(--soft);margin-top:14px}
+details{margin-top:12px;color:var(--soft);font-size:12px}summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;min-height:44px}summary::-webkit-details-marker{display:none}summary:after{content:'+';font-size:16px}details[open] summary:after{content:'−'}
+.help-content{margin-top:8px;padding:22px 18px;background:rgba(255,255,255,.75);border-radius:18px;box-shadow:0 6px 24px rgba(24,24,27,.04)}
+.install,.help-subtitle{font:500 13px/1.8 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink)}
+.badge-link{display:inline-block;margin-top:14px;line-height:0}.badge{height:42px;width:auto}
+.note{font-size:12px;color:var(--soft);margin:12px auto 0;max-width:285px}.help-subtitle{margin:24px 0 8px}
+.copy{font:inherit;min-height:44px;border:0;background:transparent;color:var(--ink);text-decoration:underline;text-underline-offset:5px;cursor:pointer;padding:8px}
+.notice{font-size:12px}textarea{width:100%;height:88px;font:12px/1.5 monospace;border:1px solid #d4d4d8;border-radius:8px;padding:8px;background:#fff;color:var(--ink)}
+.invalid{color:var(--soft);font-size:13px;margin-top:24px}.footer{font:11px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--faint);margin-top:28px;letter-spacing:.03em}
+:focus-visible{outline:2px solid #39747b;outline-offset:5px}
+@media(max-height:680px) and (max-width:699px){main{padding-top:24px}.wordmark{margin-bottom:22px}.env-wrap{width:220px;margin:24px auto 20px}}
+@media(min-height:900px){main{padding-top:54px}.wordmark{margin-bottom:38px}.env-wrap{margin-top:36px}}
+@media(min-width:700px){main{padding-top:64px}.env-wrap{width:280px}}
+</style></head><body><main>
+<div class="wordmark"><img class="brand-logo" src="/l/wordmark.png" width="660" height="139" alt="Unletter"></div>
+<section id="missing" hidden><h1>ページが見つかりません</h1><p class="note"><a href="/">Unletterのホームへ</a></p></section>
+<section id="letter">
+<h1 id="title">手紙が届きました</h1>
+<div class="address" id="address" hidden>
+<p class="address-person"><span class="tag" lang="en">from</span><span class="name" id="sender" hidden></span></p>
+<p class="address-person"><span class="tag" lang="en">to</span><span class="name" id="recipient" hidden></span></p>
+</div>
+<div class="env-wrap"><img class="envelope" id="envelope" src="/l/envelope.png" width="988" height="692" alt="封蝋で閉じられた封筒"></div>
+<p class="open" id="open">ひらく日まで、そっと封のまま。</p>
+<a class="receive" id="receive" hidden>Unletterで受け取る</a>
+<p class="invalid" id="invalid">送り主から届いたリンクを開いてください。</p>
+<p class="device" id="device">iPhone・iPadが必要です（受け取り無料）</p>
+<details id="help-details" hidden><summary id="help-title">受け取り方を見る</summary><div class="help-content">
+<h2 class="install" id="install">Unletterをお持ちでない方へ</h2>
+
+<a class="badge-link" id="store" href="https://apps.apple.com/app/id6777921284" rel="noreferrer" aria-label="App StoreでUnletterを入手"><img class="badge" id="badge" src="/l/appstore-badge-ja.svg" alt="App Storeからダウンロード"></a>
+<p class="note" id="note">インストール・更新後、このリンクをもう一度開いてください。</p>
+<h2 class="help-subtitle" id="help-subtitle">アプリが開かないときは</h2>
+<p id="help">LINEなどのアプリ内で開いている場合は、メニューからSafariで開いてください。</p>
+<button class="copy" id="copy" type="button">手紙のリンクをコピー</button><p class="notice" id="notice" role="status" aria-live="polite"></p>
+<textarea id="manual-link" readonly hidden aria-label="手紙のリンク" spellcheck="false"></textarea></div></details>
+<noscript><p class="note">手紙の情報を表示するにはJavaScriptを有効にしてください。</p></noscript>
+</section><p class="footer">by Unbarria®</p>
+</main><script>(function () {
+  const get = id => document.getElementById(id)
+  // Safari may reuse this document for another /l/r/#... invitation.
+  // Retire the old actions before reloading and validating the new fragment.
+  window.addEventListener('hashchange', function () {
+    get('letter').hidden = true
+    get('receive').hidden = true
+    get('receive').removeAttribute('href')
+    location.reload()
+  })
+  const en = !/^ja\b/i.test(navigator.language || 'ja')
+  const idPattern = /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/
+  const sharedPage = location.pathname === '/l/r/' || location.pathname === '/l/'
+  const oldID = location.pathname.slice(3)
+  if (location.search || (!sharedPage && !(location.pathname.startsWith('/l/') && idPattern.test(oldID)))) return
+  get('missing').hidden = true
+  get('letter').hidden = false
+  document.documentElement.lang = en ? 'en' : 'ja'
+  if (en) {
+    get('title').textContent = 'A letter for you'
+    get('receive').textContent = 'Receive in Unletter'
+    get('open').textContent = 'Kept sealed until the day it opens.'
+    get('install').textContent = 'Don’t have Unletter yet?'
+    get('device').textContent = 'Requires iPhone or iPad · Free to receive'
+    get('note').textContent = 'After installing or updating, open this link again.'
+    get('help-title').textContent = 'How to receive your letter'
+    get('help-subtitle').textContent = 'If the app doesn’t open'
+    get('help').textContent = 'In LINE or another app’s browser, use its menu to open this page in Safari.'
+    get('copy').textContent = 'Copy letter link'
+    get('invalid').textContent = 'Open the full link you received from the sender.'
+    get('badge').src = get('badge').src.replace('badge-ja.svg', 'badge-en.svg')
+    get('badge').alt = 'Download on the App Store'
+    get('store').setAttribute('aria-label', 'Download Unletter on the App Store')
+    get('envelope').alt = 'An envelope closed with a wax seal'
   }
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  html{ min-height:100%; }
-  body{
-    /* アプリの WarmBackground（近白の縦グラデ）に合わせ、封筒画像の縁を溶け込ませる。 */
-    background:linear-gradient(180deg, #FEFEFE 0%, #F7F7F6 100%) fixed; color:var(--ink);
-    -webkit-font-smoothing:antialiased; line-height:1.7;
-    min-height:100vh; min-height:100svh;
-    display:flex; align-items:flex-start; justify-content:center;
-    padding:calc(32px + env(safe-area-inset-top)) 26px calc(36px + env(safe-area-inset-bottom));
-  }
-  main{ width:100%; max-width:360px; margin-block:auto; text-align:center; }
-  .wordmark{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:18px;
-    letter-spacing:.06em; color:var(--ink-soft); margin-bottom:30px; }
-  .from{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
-    font-size:13px; color:var(--ink-soft); margin-bottom:6px; min-height:1.1em; }
-  .title{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-weight:500;
-    font-size:25px; letter-spacing:.03em; }
-  .env-wrap{ position:relative; width:238px; margin:30px auto 42px; }
-  .env-wrap::before{ content:""; position:absolute; inset:0; z-index:0;
-    background:rgba(24,24,27,0.30); border-radius:12px;
-    transform:translateY(19px) scale(0.96);
-    -webkit-filter:blur(28px); filter:blur(28px); }
-  .env{ position:relative; z-index:1; display:block; width:238px; height:auto; }
-  @media (max-width:900px) {
-    .env-wrap::before{
-      background:rgba(24,24,27,0.40);
-      transform:translateY(20px) scale(0.98);
-      -webkit-filter:blur(27px); filter:blur(27px);
+  let fields, id, canonical
+  try {
+    fields = new Map()
+    for (const field of location.hash.slice(1).split('&')) {
+      const split = field.indexOf('=')
+      if (split < 1 || fields.has(field.slice(0,split))) throw new Error()
+      fields.set(field.slice(0,split),field.slice(split+1))
     }
-  }
-  .open{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
-    font-size:13px; color:var(--ink-soft); line-height:1.8; min-height:1.1em;
-    padding:0 8px; white-space:pre-line; }
-  /* Apple 公式 App Store バッジ（アートワークは改変しない／余白規定を満たす）。 */
-  .badge-link{ display:inline-block; margin-top:34px; line-height:0; }
-  .badge-link:active{ opacity:.85; }
-  .badge{ height:50px; width:auto; }
-  .open-app{ display:flex; align-items:center; gap:8px;
-    width:max-content; max-width:100%; margin:30px auto 0;
-    padding:0 4px 5px; border-bottom:1px solid rgba(24,24,27,.46);
-    color:var(--ink); text-decoration:none;
-    font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:16.5px;
-    font-weight:500; letter-spacing:.04em; line-height:1.4; }
-  .open-app::after{ content:""; width:7px; height:7px;
-    border-top:1px solid rgba(24,24,27,.58); border-right:1px solid rgba(24,24,27,.58);
-    transform:rotate(45deg); margin-top:1px; }
-  .open-app:active{ opacity:.62; }
-  .open-app[hidden]{ display:none; }
-  .note{ font-family:-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
-    font-size:12.5px; color:var(--ink-faint); margin-top:26px; }
-  .note + .badge-link{ margin-top:10px; }
-  .footer{ font-family:"Hiragino Mincho ProN",Georgia,serif; font-size:12px;
-    color:var(--ink-faint); margin-top:46px; }
-</style>
-</head>
-<body>
-  <main>
-    <div class="wordmark">Unletter</div>
-
-    <p class="from" id="from"></p>
-    <p class="title" id="title">手紙が届いています</p>
-
-    <!-- アプリが実際に描く封筒（封蝋付き）をそのまま画像化したもの。WEBとアプリで同一の見た目。 -->
-    <div class="env-wrap">
-      <img class="env" src="envelope.png?v=4" width="988" height="692" alt="封蝋で閉じられた封筒">
-    </div>
-
-    <p class="open" id="open"></p>
-
-    <a class="open-app" id="openApp" href="#" hidden>
-      <span id="openAppLabel">手紙を受け取る</span>
-    </a>
-
-    <p class="note" id="note">Unletter アプリを入れたあと、もう一度このリンクを開くと、手紙が追加されます。</p>
-
-    <a class="badge-link" id="badgeLink" href="https://apps.apple.com/app/id6777921284" aria-label="App Store で入手">
-      <img class="badge" id="badge" src="appstore-badge-ja.svg" alt="App Store で入手">
-    </a>
-
-    <p class="footer">Unletter by Unbarria®</p>
-  </main>
-
-  <script>
-    // 端末の言語で日英を出し分け。「#」以降のフラグメントはサーバーに送られない
-    // （表示のためだけにブラウザ内で読む。手紙の本文・写真などは一切含めない）。
-    (function () {
-      var lang = (navigator.language || "ja").toLowerCase().indexOf("ja") === 0 ? "ja" : "en";
-      document.documentElement.lang = lang;
-      var MON = ["January","February","March","April","May","June","July","August",
-                 "September","October","November","December"];
-      var T = {
-        ja: {
-          title: "手紙が届いています",
-          from: function (n) { return n + " さんから"; },
-          date: function (y, m, d) { return y + "年" + m + "月" + d + "日"; },
-          sealed: function (ds) { return "ひらく日（" + ds + "）まで、\nそっと封のままお預かりします。"; },
-          badge: "appstore-badge-ja.svg",
-          badgeAlt: "App Store で入手",
-          openApp: "手紙を受け取る",
-          note: "Unletterをお持ちでない方は"
-        },
-        en: {
-          title: "A letter is waiting for you",
-          from: function (n) { return "From " + n; },
-          date: function (y, m, d) { return MON[m - 1] + " " + d + ", " + y; },
-          sealed: function (ds) { return "Sealed until " + ds + "."; },
-          badge: "appstore-badge-en.svg",
-          badgeAlt: "Download on the App Store",
-          openApp: "Receive the letter",
-          note: "If you do not have Unletter"
-        }
-      };
-      var t = T[lang];
-      document.getElementById("title").textContent = t.title;
-      document.getElementById("note").textContent = t.note;
-      var rawHash = location.hash.replace(/^#/, "");
-      var openApp = document.getElementById("openApp");
-      if (rawHash) {
-        document.getElementById("openAppLabel").textContent = t.openApp;
-        try {
-          var appParams = new URLSearchParams();
-          var landingParams = new URLSearchParams(rawHash);
-          ["m", "f", "from", "o", "open"].forEach(function (name) {
-            var value = landingParams.get(name);
-            if (value) appParams.set(name, value);
-          });
-          openApp.href = "unletter://receive?" + appParams.toString();
-        } catch (e) {
-          openApp.href = "unletter://receive?" + rawHash;
-        }
-        openApp.hidden = false;
-      }
-      var badge = document.getElementById("badge");
-      badge.src = t.badge; badge.alt = t.badgeAlt;
-      document.getElementById("badgeLink").setAttribute("aria-label", t.badgeAlt);
-      try {
-        var p = new URLSearchParams(location.hash.replace(/^#/, ""));
-        var from = p.get("f") || p.get("from");
-        if (from) document.getElementById("from").textContent = t.from(decodeURIComponent(from));
-        var open = p.get("o") || p.get("open");
-        var m = open && open.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
-        if (m) document.getElementById("open").textContent = t.sealed(t.date(+m[1], +m[2], +m[3]));
-      } catch (e) { /* フラグメントが無くても通常表示 */ }
-    })();
-  </script>
-</body>
-</html>
+    id = sharedPage ? fields.get('id') : oldID
+    if (!idPattern.test(id || '') || (!sharedPage && fields.has('id'))) throw new Error()
+    if (sharedPage) fields.delete('id')
+    const allowed = ['v','t','k','from','to','cover']
+    if ([...fields.keys()].some(k => !allowed.includes(k)) || fields.get('v') !== '1') throw new Error()
+    if (!['t','k'].every(k => /^[A-Za-z0-9_-]{42}[AEIMQUYcgkosw048]$/.test(fields.get(k) || '')) || fields.get('t') === fields.get('k')) throw new Error()
+    function name(key) {
+      const encoded = fields.get(key)
+      if (typeof encoded !== 'string' || encoded.length > 960) throw new Error()
+      const value = decodeURIComponent(encoded).trim()
+      if (!value || [...value].length > 80 || new TextEncoder().encode(value).length > 320 || /[\u0000-\u001f\u007f-\u009f\u2028\u2029]/u.test(value)) throw new Error()
+      return value
+    }
+    let sender, recipient
+    if (fields.has('from') || fields.has('to')) { sender = name('from'); recipient = name('to') }
+    let openDate
+    if (fields.has('cover')) {
+      const encoded = fields.get('cover')
+      if (encoded.length > 6000 || !/^[A-Za-z0-9_-]+$/.test(encoded)) throw new Error()
+      const bytes = Uint8Array.from(atob(encoded.replace(/-/g,'+').replace(/_/g,'/') + '='.repeat((4-encoded.length%4)%4)), c => c.charCodeAt(0))
+      const cover = JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes))
+      if (typeof cover.openAt !== 'string' || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(cover.openAt) ||
+          !idPattern.test(cover.sealSeed?.toLowerCase() || '') ||
+          (cover.memo != null && (typeof cover.memo !== 'string' || new TextEncoder().encode(cover.memo).length > 2048))) throw new Error()
+      openDate = new Date(cover.openAt)
+      if (!Number.isFinite(openDate.getTime())) throw new Error()
+    }
+    const host = location.hostname === 'unletter-relay-staging.yusuke-yoshida.workers.dev' ? location.hostname : 'unletter.unbarria.com'
+    const fragment = [...fields].map(([k,v]) => k + '=' + v).join('&')
+    canonical = 'https://' + host + '/l/' + id + '#' + fragment
+    // Safari opens an associated HTTPS link on a different host in the installed app.
+    const handoffHost = location.hostname === 'unletter.unbarria.com'
+      ? 'unletter-relay-production.yusuke-yoshida.workers.dev' : host
+    get('receive').href = 'https://' + handoffHost + '/l/' + id + '#' + fragment
+    get('receive').hidden = false
+    get('help-details').hidden = false
+    get('invalid').hidden = true
+    if (sender) {
+      get('sender').textContent = sender
+      get('recipient').textContent = recipient
+      get('address').hidden = false
+      get('sender').hidden = false
+      get('recipient').hidden = false
+    }
+    if (openDate) {
+      const date = new Intl.DateTimeFormat(en ? 'en' : 'ja', {year:'numeric',month:'long',day:'numeric'}).format(openDate)
+      get('open').textContent = (en ? 'Opens ' : 'ひらく日　') + date
+    }
+  } catch (_) { return }
+  get('copy').addEventListener('click', async function () {
+    try {
+      // The canonical form also works with the first delivery-enabled builds.
+      await navigator.clipboard.writeText(canonical)
+      get('notice').textContent = en ? 'Link copied.' : 'リンクをコピーしました。'
+    } catch (_) {
+      get('manual-link').value = canonical
+      get('manual-link').hidden = false
+      get('manual-link').focus()
+      get('manual-link').select()
+      get('notice').textContent = en ? 'Select and copy the link below.' : '下のリンクを選択してコピーしてください。'
+    }
+  })
+})();</script></body></html>
