@@ -2,7 +2,7 @@
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://unletter.unbarria.com; style-src 'unsafe-inline'; script-src 'sha256-oAiUkWqNXAfpsM3L37HL6iHNrdKfscBCrKbtZSpAs4I='; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://unletter.unbarria.com; style-src 'unsafe-inline'; script-src 'sha256-HCoUFOEEfg9Tcjv6TqTUS8nEmvHtLRkP9JlrcWpMPMY='; base-uri 'none'; form-action 'none'">
 <title>手紙が届いています — Unletter</title>
 <meta name="description" content="あなた宛ての手紙が届いています。Unletterで、ひらく日までそっと封のまま。">
 <meta name="theme-color" content="#FAFAFA">
@@ -82,7 +82,10 @@ details{margin-top:12px;color:var(--soft);font-size:12px}summary{cursor:pointer;
   })
   const en = !/^ja\b/i.test(navigator.language || 'ja')
   const idPattern = /^[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}$/
-  const sharedPage = location.pathname === '/l/r/' || location.pathname === '/l/'
+  const publicHost = 'unletter.unbarria.com'
+  const relayHost = 'unletter-relay-production.yusuke-yoshida.workers.dev'
+  const webLanding = location.hostname === relayHost && location.pathname === '/receive/'
+  const sharedPage = webLanding || location.pathname === '/l/r/' || location.pathname === '/l/'
   const oldID = location.pathname.slice(3)
   if (location.search || (!sharedPage && !(location.pathname.startsWith('/l/') && idPattern.test(oldID)))) return
   get('missing').hidden = true
@@ -140,13 +143,16 @@ details{margin-top:12px;color:var(--soft);font-size:12px}summary{cursor:pointer;
       openDate = new Date(cover.openAt)
       if (!Number.isFinite(openDate.getTime())) throw new Error()
     }
-    const host = location.hostname === 'unletter-relay-staging.yusuke-yoshida.workers.dev' ? location.hostname : 'unletter.unbarria.com'
+    const host = location.hostname === 'unletter-relay-staging.yusuke-yoshida.workers.dev' ? location.hostname : publicHost
     const fragment = [...fields].map(([k,v]) => k + '=' + v).join('&')
     canonical = 'https://' + host + '/l/' + id + '#' + fragment
-    // Safari opens an associated HTTPS link on a different host in the installed app.
-    const handoffHost = location.hostname === 'unletter.unbarria.com'
-      ? 'unletter-relay-production.yusuke-yoshida.workers.dev' : host
-    get('receive').href = 'https://' + handoffHost + '/l/' + id + '#' + fragment
+    // Once Safari is displaying the invitation, put its button on a web-only
+    // path on the other origin. Its tap then targets the original app domain.
+    if (location.hostname === publicHost) {
+      location.replace('https://' + relayHost + '/receive/#id=' + id + '&' + fragment)
+      return
+    }
+    get('receive').href = webLanding ? 'https://' + publicHost + '/l/r/#id=' + id + '&' + fragment : canonical
     get('receive').hidden = false
     get('help-details').hidden = false
     get('invalid').hidden = true
@@ -162,6 +168,18 @@ details{margin-top:12px;color:var(--soft);font-size:12px}summary{cursor:pointer;
       get('open').textContent = (en ? 'Opens ' : 'ひらく日　') + date
     }
   } catch (_) { return }
+  if (webLanding) {
+    // If Safari handled the app link itself, show installation and copy help.
+    // Keep only the transfer ID in this tab, never the key or invitation token.
+    const attempt = 'unletter.openAttempt'
+    try {
+      if (sessionStorage.getItem(attempt) === id) get('help-details').open = true
+      sessionStorage.removeItem(attempt)
+    } catch (_) {}
+    get('receive').addEventListener('click', function () {
+      try { sessionStorage.setItem(attempt, id) } catch (_) {}
+    })
+  }
   get('copy').addEventListener('click', async function () {
     try {
       // The canonical form also works with the first delivery-enabled builds.
