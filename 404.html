@@ -2,7 +2,7 @@
 <html lang="ja"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://unletter.unbarria.com; style-src 'unsafe-inline'; script-src 'sha256-HVbUmYqmgnY4ErXjlNgKq8iif59t2iwUY4F5O3Ukfi0='; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' https://unletter.unbarria.com; style-src 'unsafe-inline'; script-src 'sha256-JQ1CL6IE6wt8OVO5Arl857eys7+bxB09a/dDPFMUFZI='; base-uri 'none'; form-action 'none'">
 <title>手紙が届いています — Unletter</title>
 <meta name="description" content="あなた宛ての手紙が届いています。Unletterで、ひらく日までそっと封のまま。">
 <meta name="theme-color" content="#FAFAFA">
@@ -18,50 +18,58 @@
 :root{color-scheme:light;--ink:#18181b;--soft:#71717a;--faint:#8b8b92;--serif:"Hiragino Mincho ProN","Yu Mincho",Georgia,serif}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%}
 body{background:linear-gradient(180deg,#fefefe,#f7f7f6) fixed;color:var(--ink);font:14px/1.8 -apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif;-webkit-font-smoothing:antialiased}
-main{width:min(100%,420px);margin:auto;padding:32px 26px calc(28px + env(safe-area-inset-bottom));text-align:center}
-p,h1{margin:0}a{color:inherit}button,a,input{touch-action:manipulation}button,a{-webkit-tap-highlight-color:transparent}
-[hidden]{display:none!important}.wordmark{font:20px/1.4 var(--serif);letter-spacing:.08em;color:var(--soft);margin-bottom:32px}
-.sender{font-size:13px;color:var(--soft);margin-bottom:7px;overflow-wrap:anywhere}
+main{width:min(100%,420px);margin:auto;padding:32px 26px calc(24px + env(safe-area-inset-bottom));text-align:center}
+p,h1,h2{margin:0}a{color:inherit}button,a,input,textarea{touch-action:manipulation}button,a{-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}.wordmark{font:22px/1.4 var(--serif);letter-spacing:.06em;color:var(--soft);margin-bottom:30px}
 h1{font:500 26px/1.5 var(--serif);letter-spacing:.025em}
-.env-wrap{position:relative;width:min(262px,88%);margin:30px auto 26px}
-.env-wrap:before{content:"";position:absolute;inset:0;background:rgba(24,24,27,.24);border-radius:12px;transform:translateY(17px) scale(.95);filter:blur(26px)}
+.address{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 20px;margin-top:16px;color:var(--soft)}
+.address-person{display:flex;align-items:baseline;justify-content:center;gap:7px;max-width:100%;min-width:0}
+.tag{flex:none;font:11px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;background:#f0f0f2;border-radius:5px;padding:2px 6px}
+.name{font:16px/1.6 var(--serif);overflow-wrap:anywhere;min-width:0}
+.env-wrap{position:relative;width:min(262px,88%);margin:30px auto 24px}
+.env-wrap:before{content:"";position:absolute;inset:0;background:rgba(24,24,27,.19);border-radius:12px;transform:translateY(15px) scale(.95);filter:blur(24px)}
 .envelope{position:relative;display:block;width:100%;height:auto}
-.recipient{font:19px/1.6 var(--serif);color:var(--soft);margin:0 0 17px;overflow-wrap:anywhere}
-.open{font-size:13px;color:var(--soft);white-space:pre-line;line-height:1.9;margin:0 auto;max-width:320px}
-.receive{display:flex;align-items:center;justify-content:center;min-height:54px;padding:10px 20px;margin:28px auto 0;border-radius:28px;background:#403b33;color:#fff;text-decoration:none;font-weight:600;font-size:16px;box-shadow:0 12px 26px rgba(41,35,27,.14)}
+.open{font-size:12px;color:var(--soft);line-height:1.8;margin:0 auto;max-width:320px}
+.receive{display:flex;align-items:center;justify-content:center;min-height:54px;padding:10px 20px;margin:24px auto 0;border-radius:28px;background:#403b33;color:#fff;text-decoration:none;font-weight:600;font-size:16px;box-shadow:0 10px 24px rgba(41,35,27,.13)}
 .receive:active{transform:translateY(1px);box-shadow:0 5px 14px rgba(41,35,27,.12)}
-.install{margin-top:26px;font-size:12px;color:var(--soft)}
-.badge-link{display:inline-block;margin-top:10px;line-height:0}.badge{height:42px;width:auto}
-.device{font-size:12px;color:var(--soft);margin-top:17px}.note{font-size:12px;color:var(--faint);margin:7px auto 0;max-width:300px}
-details{margin-top:22px;color:var(--soft);font-size:12px}summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:8px;min-height:44px}summary::-webkit-details-marker{display:none}summary:after{content:'+';font-size:16px}details[open] summary:after{content:'−'}
-.help-content{padding:4px 12px 0}.copy{font:inherit;min-height:44px;border:0;background:transparent;color:var(--ink);text-decoration:underline;text-underline-offset:5px;cursor:pointer;padding:8px}
+.device{font-size:12px;color:var(--soft);margin-top:14px}
+details{margin-top:12px;color:var(--soft);font-size:12px}summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:9px;min-height:44px}summary::-webkit-details-marker{display:none}summary:after{content:'+';font-size:16px}details[open] summary:after{content:'−'}
+.help-content{margin-top:8px;padding:22px 18px;background:rgba(255,255,255,.75);border-radius:18px;box-shadow:0 6px 24px rgba(24,24,27,.04)}
+.install,.help-subtitle{font:500 13px/1.8 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--ink)}
+.badge-link{display:inline-block;margin-top:14px;line-height:0}.badge{height:42px;width:auto}
+.note{font-size:12px;color:var(--soft);margin:12px auto 0;max-width:285px}.help-subtitle{margin:24px 0 8px}
+.copy{font:inherit;min-height:44px;border:0;background:transparent;color:var(--ink);text-decoration:underline;text-underline-offset:5px;cursor:pointer;padding:8px}
 .notice{font-size:12px}textarea{width:100%;height:88px;font:12px/1.5 monospace;border:1px solid #d4d4d8;border-radius:8px;padding:8px;background:#fff;color:var(--ink)}
-.invalid{color:var(--soft);font-size:13px;margin-top:24px}.footer{font:12px/1.5 var(--serif);color:var(--faint);margin-top:32px}
+.invalid{color:var(--soft);font-size:13px;margin-top:24px}.footer{font:11px/1.5 -apple-system,BlinkMacSystemFont,sans-serif;color:var(--faint);margin-top:28px;letter-spacing:.03em}
 :focus-visible{outline:2px solid #39747b;outline-offset:5px}
-@media(min-height:900px){main{padding-top:54px}.wordmark{margin-bottom:42px}.env-wrap{margin-top:36px}}
-@media(min-width:700px){main{padding-top:56px}.env-wrap{width:280px}}
+@media(max-height:680px) and (max-width:699px){main{padding-top:24px}.wordmark{margin-bottom:22px}.env-wrap{width:220px;margin:24px auto 20px}}
+@media(min-height:900px){main{padding-top:54px}.wordmark{margin-bottom:38px}.env-wrap{margin-top:36px}}
+@media(min-width:700px){main{padding-top:64px}.env-wrap{width:280px}}
 </style></head><body><main>
 <div class="wordmark">Unletter</div>
 <section id="missing"><h1>ページが見つかりません</h1><p class="note"><a href="/">Unletterのホームへ</a></p></section>
 <section id="letter" hidden>
-<p class="sender" id="sender" hidden></p>
-<h1 id="title">手紙が届いています</h1>
+<h1 id="title">手紙が届きました</h1>
+<div class="address" id="address" hidden>
+<p class="address-person"><span class="tag" lang="en">from</span><span class="name" id="sender" hidden></span></p>
+<p class="address-person"><span class="tag" lang="en">to</span><span class="name" id="recipient" hidden></span></p>
+</div>
 <div class="env-wrap"><img class="envelope" id="envelope" src="/l/envelope.png" width="988" height="692" alt="封蝋で閉じられた封筒"></div>
-<p class="recipient" id="recipient" hidden></p>
 <p class="open" id="open">ひらく日まで、そっと封のまま。</p>
 <a class="receive" id="receive" hidden>Unletterで受け取る</a>
 <p class="invalid" id="invalid">送り主から届いたリンクを開いてください。</p>
-<p class="install" id="install">Unletterをお持ちでない方は</p>
+<p class="device" id="device">iPhone・iPadが必要です（受け取り無料）</p>
+<details id="help-details" hidden><summary id="help-title">受け取り方を見る</summary><div class="help-content">
+<h2 class="install" id="install">Unletterをお持ちでない方へ</h2>
 
 <a class="badge-link" id="store" href="https://apps.apple.com/app/id6777921284" rel="noreferrer" aria-label="App StoreでUnletterを入手"><img class="badge" id="badge" src="/l/appstore-badge-ja.svg" alt="App Storeからダウンロード"></a>
-<p class="device" id="device">iPhoneまたはiPadが必要です。受け取りは無料です。</p>
-<p class="note" id="note">インストール・更新後、送り主のリンクをもう一度開いてください。</p>
-<details id="help-details" hidden><summary id="help-title">アプリが開かないときは</summary><div class="help-content">
-<p id="help">LINEなどのアプリ内で開いている場合は、メニューからSafariで開いてください。インストール後は、送り主のリンクをもう一度開いてください。</p>
+<p class="note" id="note">インストール・更新後、このリンクをもう一度開いてください。</p>
+<h2 class="help-subtitle" id="help-subtitle">アプリが開かないときは</h2>
+<p id="help">LINEなどのアプリ内で開いている場合は、メニューからSafariで開いてください。</p>
 <button class="copy" id="copy" type="button">手紙のリンクをコピー</button><p class="notice" id="notice" role="status" aria-live="polite"></p>
 <textarea id="manual-link" readonly hidden aria-label="手紙のリンク" spellcheck="false"></textarea></div></details>
 <noscript><p class="note">手紙の情報を表示するにはJavaScriptを有効にしてください。</p></noscript>
-</section><p class="footer">Unletter by Unbarria®</p>
+</section><p class="footer">by Unbarria®</p>
 </main><script>(function () {
   const get = id => document.getElementById(id)
   // Safari may reuse this document for another /l/r/#... invitation.
@@ -81,14 +89,15 @@ details{margin-top:22px;color:var(--soft);font-size:12px}summary{cursor:pointer;
   get('letter').hidden = false
   document.documentElement.lang = en ? 'en' : 'ja'
   if (en) {
-    get('title').textContent = 'A letter is waiting for you'
+    get('title').textContent = 'A letter for you'
     get('receive').textContent = 'Receive in Unletter'
     get('open').textContent = 'Kept sealed until the day it opens.'
     get('install').textContent = 'Don’t have Unletter yet?'
-    get('device').textContent = 'An iPhone or iPad is required. Receiving is free.'
-    get('note').textContent = 'Install or update Unletter, then open the sender’s link again.'
-    get('help-title').textContent = 'If the app doesn’t open'
-    get('help').textContent = 'If you opened this inside another app, use its menu to open it in Safari. After installing Unletter, open the sender’s link again.'
+    get('device').textContent = 'Requires iPhone or iPad · Free to receive'
+    get('note').textContent = 'After installing or updating, open this link again.'
+    get('help-title').textContent = 'How to receive your letter'
+    get('help-subtitle').textContent = 'If the app doesn’t open'
+    get('help').textContent = 'In LINE or another app’s browser, use its menu to open this page in Safari.'
     get('copy').textContent = 'Copy letter link'
     get('invalid').textContent = 'Open the full link you received from the sender.'
     get('badge').src = get('badge').src.replace('badge-ja.svg', 'badge-en.svg')
@@ -139,15 +148,15 @@ details{margin-top:22px;color:var(--soft);font-size:12px}summary{cursor:pointer;
     get('help-details').hidden = false
     get('invalid').hidden = true
     if (sender) {
-      get('sender').textContent = en ? 'From ' + sender : sender + 'より'
-      get('recipient').textContent = en ? 'To ' + recipient : recipient + 'へ'
+      get('sender').textContent = sender
+      get('recipient').textContent = recipient
+      get('address').hidden = false
       get('sender').hidden = false
       get('recipient').hidden = false
     }
     if (openDate) {
       const date = new Intl.DateTimeFormat(en ? 'en' : 'ja', {year:'numeric',month:'long',day:'numeric'}).format(openDate)
-      get('open').textContent = openDate > new Date() ? (en ? 'Kept sealed until ' + date + '.' : 'ひらく日（' + date + '）まで、\nそっと封のままお預かりします。') :
-        (en ? 'Receive your letter and read it in Unletter.' : 'Unletterで、手紙を受け取れます。')
+      get('open').textContent = (en ? 'Opens ' : 'ひらく日　') + date
     }
   } catch (_) { return }
   get('copy').addEventListener('click', async function () {
